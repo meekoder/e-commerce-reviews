@@ -11,14 +11,27 @@ const reviewSchema = mongoose.Schema({
   comfort: Number,
   quality: Number,
   recommended: Number,
+  verified: Number,
   helpfulYes: Number,
   helpfulNo: Number
 });
 
 const ReviewModel = mongoose.model('Review', reviewSchema);
 
+const findAll = (cb) => {
+  ReviewModel.find({}, cb);
+};
+
+const findOne = (query, cb) => {
+  return ReviewModel.find(query, cb);
+}
+
 const insertOne = (review, cb) => {
   ReviewModel.create(review, cb);
 };
 
-module.exports = {insertOne};
+module.exports = {
+  insertOne,
+  findAll,
+  findOne
+};

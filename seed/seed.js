@@ -17,6 +17,7 @@ const seedDb = (data) => {
       comfort: d.comfort,
       quality: d.quality,
       recommended: d.recommended,
+      verified: d.verified,
       helpfulYes: d.helpfulYes,
       helpfulNo: d.helpfulNo
     };
