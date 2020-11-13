@@ -19,6 +19,7 @@ while (count < 100) {
       width: getRandomNum(1, 6),
       comfort: getRandomNum(1, 6),
       quality: getRandomNum(1, 6),
+      image: count % 3 === 0 ? faker.image.imageUrl() : null,
       recommended: getRandomNum(0, 2),
       verified: getRandomNum(0, 2),
       helpfulYes: getRandomNum(0, 10),

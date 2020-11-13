@@ -10,6 +10,7 @@ const reviewSchema = mongoose.Schema({
   width: Number,
   comfort: Number,
   quality: Number,
+  image: String,
   recommended: Number,
   verified: Number,
   helpfulYes: Number,
