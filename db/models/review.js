@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
 
 const reviewSchema = mongoose.Schema({
+  id: Number,
   userName: String,
   reviewDate: Date,
   summary: String,
@@ -17,6 +18,11 @@ const reviewSchema = mongoose.Schema({
   helpfulNo: Number
 });
 
+const shoeSchema = mongoose.Schema({
+  reviews: Array
+});
+
+const ShoeModel = mongoose.model('Shoe', shoeSchema);
 const ReviewModel = mongoose.model('Review', reviewSchema);
 
 const findAll = (cb) => {
@@ -27,11 +33,16 @@ const findOne = (query, cb) => {
   return ReviewModel.find(query, cb);
 }
 
-const insertOne = (review, cb) => {
-  ReviewModel.create(review, cb);
+// const insertOne = (review, cb) => {
+//   ReviewModel.create(review, cb);
+// };
+
+const insertOne = (reviews, cb) => {
+  ShoeModel.create(reviews, cb);
 };
 
 module.exports = {
+  ShoeModel,
   insertOne,
   findAll,
   findOne
