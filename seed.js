@@ -1,6 +1,6 @@
 const faker = require('faker');
 const mongoose = require('mongoose');
-const Reviews = require('../db/models/review.js');
+const Reviews = require('./db/models/review.js');
 
 mongoose.connect('mongodb://localhost:27017/reviews');
 
@@ -16,14 +16,15 @@ const getImage = () => {
   return image;
 };
 
-const generateReviews = () => {
+const generateReviews = (i) => {
   let seededReviews = [];
   let count = 0;
+  const reviewCount = getRandomNum(10, 51);
 
-  while (count < 10) {
+  while (count < reviewCount) {
     seededReviews.push(
       {
-        id: faker.random.number(),
+        id: i,
         userName: faker.name.firstName(),
         reviewDate: faker.date.past(), 
         summary: faker.lorem.sentence(),
@@ -42,7 +43,7 @@ const generateReviews = () => {
     );
     count++;
   }
-  const shoeReview = new Reviews.ShoeModel({reviews: [...seededReviews]});
+  const shoeReview = new Reviews.ShoeModel({id: i, reviews: [...seededReviews]});
   return shoeReview;
 };
 
@@ -58,7 +59,7 @@ const seedDb = (data) => {
 
 const generateShoes = () => {
   for (let i = 0; i < 100; i++) {
-    seedDb(generateReviews()); 
+    seedDb(generateReviews(i)); 
   }
 };
 

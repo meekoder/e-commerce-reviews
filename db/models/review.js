@@ -19,6 +19,7 @@ const reviewSchema = mongoose.Schema({
 });
 
 const shoeSchema = mongoose.Schema({
+  id: Number,
   reviews: Array
 });
 
@@ -33,6 +34,7 @@ const findOne = (query, cb) => {
   return ReviewModel.find(query, cb);
 }
 
+// may need this for future use
 // const insertOne = (review, cb) => {
 //   ReviewModel.create(review, cb);
 // };
