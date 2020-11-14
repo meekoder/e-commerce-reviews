@@ -1,4 +1,8 @@
 const faker = require('faker');
+const mongoose = require('mongoose');
+const Reviews = require('../db/models/review.js');
+
+mongoose.connect('mongodb://localhost:27017/reviews');
 
 const getRandomNum = (min, max) => {
   return Math.floor(Math.random() * (max - min)) + min;
@@ -12,29 +16,50 @@ const getImage = () => {
   return image;
 };
 
-let seededReviews = [];
-let count = 0;
+const generateReviews = () => {
+  let seededReviews = [];
+  let count = 0;
 
-while (count < 100) {
-  seededReviews.push(
-    {
-      userName: faker.name.firstName(),
-      reviewDate: faker.date.past(), 
-      summary: faker.lorem.sentence(),
-      fullReview: faker.lorem.sentences(),
-      stars: getRandomNum(1, 6),
-      size: getRandomNum(1, 6),
-      width: getRandomNum(1, 6),
-      comfort: getRandomNum(1, 6),
-      quality: getRandomNum(1, 6),
-      image: count % 5 === 0 ? getImage() : null,
-      recommended: getRandomNum(0, 2),
-      verified: getRandomNum(0, 2),
-      helpfulYes: getRandomNum(0, 10),
-      helpfulNo: getRandomNum(0, 10)
+  while (count < 10) {
+    seededReviews.push(
+      {
+        id: faker.random.number(),
+        userName: faker.name.firstName(),
+        reviewDate: faker.date.past(), 
+        summary: faker.lorem.sentence(),
+        fullReview: faker.lorem.sentences(),
+        stars: getRandomNum(1, 6),
+        size: getRandomNum(1, 6),
+        width: getRandomNum(1, 6),
+        comfort: getRandomNum(1, 6),
+        quality: getRandomNum(1, 6),
+        image: count % 5 === 0 ? getImage() : null,
+        recommended: getRandomNum(0, 2),
+        verified: getRandomNum(0, 2),
+        helpfulYes: getRandomNum(0, 10),
+        helpfulNo: getRandomNum(0, 10)
+      }
+    );
+    count++;
+  }
+  const shoeReview = new Reviews.ShoeModel({reviews: [...seededReviews]});
+  return shoeReview;
+};
+
+const seedDb = (data) => {
+  Reviews.insertOne(data, (err, data) => {
+    if (err) {
+      console.log(err);
+      return;
     }
-  );
-  count++;
-}
+    console.log(data);
+  })
+};
 
-module.exports = seededReviews;
+const generateShoes = () => {
+  for (let i = 0; i < 100; i++) {
+    seedDb(generateReviews()); 
+  }
+};
+
+generateShoes();
