@@ -16,6 +16,7 @@ const seedDb = (data) => {
       width: d.width,
       comfort: d.comfort,
       quality: d.quality,
+      image: d.image,
       recommended: d.recommended,
       verified: d.verified,
       helpfulYes: d.helpfulYes,
