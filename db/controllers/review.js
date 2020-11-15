@@ -6,19 +6,6 @@ const getReviews = (cb) => {
       console.log(err);
       cb(err, null);
     } else {
-      console.log(data);
-      cb(null, data);
-    }
-  });
-};
-
-const getReview = (query, cb) => {
-  Reviews.findOne(query, (err, data) => {
-    if (err) {
-      console.log(err);
-      cb(err, null);
-    } else {
-      console.log(data);
       cb(null, data);
     }
   });
@@ -30,7 +17,6 @@ const addReview = (review, cb) => {
       console.log(err);
       cb(err, null);
     } else {
-      console.log(data);
       cb(null, data);
     }
   });
@@ -42,13 +28,11 @@ const getHelpful = (cb) => {
       console.log(err);
       cb(err, null);
     } else {
-      data = data.filter(d => d.helpfulYes > 0);
-      data.sort((a, b) => {
-        return b.helpfulYes - a.helpfulYes;
-      });
+      data = data.filter((d) => d.helpfulYes > 0);
+      data.sort((a, b) => b.helpfulYes - a.helpfulYes);
       cb(null, data);
     }
-  })
+  });
 };
 
 const getNewest = (cb) => {
@@ -57,9 +41,7 @@ const getNewest = (cb) => {
       console.log(err);
       cb(err, null);
     } else {
-      data.sort((a, b) => {
-        return new Date(b.reviewDate) - new Date(a.reviewDate);
-      });
+      data.sort((a, b) => new Date(b.reviewDate) - new Date(a.reviewDate));
       cb(null, data);
     }
   });
@@ -71,7 +53,7 @@ const getRelevant = (cb) => {
       console.log(err);
       cb(err, null);
     } else {
-      data = data.filter(d => d.verified > 0);
+      data = data.filter((d) => d.verified > 0);
       cb(null, data);
     }
   });
@@ -79,9 +61,8 @@ const getRelevant = (cb) => {
 
 module.exports = {
   getReviews,
-  getReview,
   addReview,
   getHelpful,
   getNewest,
-  getRelevant
+  getRelevant,
 };

@@ -15,29 +15,20 @@ const reviewSchema = mongoose.Schema({
   recommended: Number,
   verified: Number,
   helpfulYes: Number,
-  helpfulNo: Number
+  helpfulNo: Number,
 });
 
 const shoeSchema = mongoose.Schema({
   id: Number,
-  reviews: Array
+  reviews: Array,
 });
 
 const ShoeModel = mongoose.model('Shoe', shoeSchema);
-const ReviewModel = mongoose.model('Review', reviewSchema);
+// const ReviewModel = mongoose.model('Review', reviewSchema);
 
 const findAll = (cb) => {
-  ReviewModel.find({}, cb);
+  ShoeModel.find({}, cb);
 };
-
-const findOne = (query, cb) => {
-  return ReviewModel.find(query, cb);
-}
-
-// may need this for future use
-// const insertOne = (review, cb) => {
-//   ReviewModel.create(review, cb);
-// };
 
 const insertOne = (reviews, cb) => {
   ShoeModel.create(reviews, cb);
@@ -47,5 +38,4 @@ module.exports = {
   ShoeModel,
   insertOne,
   findAll,
-  findOne
 };

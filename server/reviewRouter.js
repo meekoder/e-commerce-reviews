@@ -3,7 +3,7 @@ const reviewCtrl = require('../db/controllers/review.js');
 
 const router = express.Router();
 
-router.route('/reviews')
+router.route('/shoes')
   .get((req, res) => {
     reviewCtrl.getReviews((err, data) => {
       if (err) {
