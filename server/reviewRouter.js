@@ -27,7 +27,7 @@ router.route('/reviews')
 
 router.route('/5stars')
   .get((req, res) => {
-    reviewCtrl.getReview({stars: 5}, (err, data) => {
+    reviewCtrl.getReview({ stars: 5 }, (err, data) => {
       if (err) {
         res.sendStatus(404);
       } else {
@@ -38,7 +38,7 @@ router.route('/5stars')
 
 router.route('/4stars')
   .get((req, res) => {
-    reviewCtrl.getReview({stars: 4}, (err, data) => {
+    reviewCtrl.getReview({ stars: 4 }, (err, data) => {
       if (err) {
         res.sendStatus(404);
       } else {
@@ -49,7 +49,7 @@ router.route('/4stars')
 
 router.route('/3stars')
   .get((req, res) => {
-    reviewCtrl.getReview({stars: 3}, (err, data) => {
+    reviewCtrl.getReview({ stars: 3 }, (err, data) => {
       if (err) {
         res.sendStatus(404);
       } else {
@@ -60,7 +60,7 @@ router.route('/3stars')
 
 router.route('/2stars')
   .get((req, res) => {
-    reviewCtrl.getReview({stars: 2}, (err, data) => {
+    reviewCtrl.getReview({ stars: 2 }, (err, data) => {
       if (err) {
         res.sendStatus(404);
       } else {
@@ -71,7 +71,7 @@ router.route('/2stars')
 
 router.route('/1stars')
   .get((req, res) => {
-    reviewCtrl.getReview({stars: 1}, (err, data) => {
+    reviewCtrl.getReview({ stars: 1 }, (err, data) => {
       if (err) {
         res.sendStatus(404);
       } else {
