@@ -30,6 +30,10 @@ const findAll = (cb) => {
   ShoeModel.find({}, cb);
 };
 
+const findOne = (id, cb) => {
+  ShoeModel.find({ id }, cb);
+};
+
 const insertOne = (reviews, cb) => {
   ShoeModel.create(reviews, cb);
 };
@@ -38,4 +42,5 @@ module.exports = {
   ShoeModel,
   insertOne,
   findAll,
+  findOne,
 };
