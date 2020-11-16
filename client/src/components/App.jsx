@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import styles from '../../../public/styles.css';
 import Reviews from './Reviews';
 import Total from './Total';
 import Breakdown from './Breakdown';
@@ -19,7 +20,7 @@ function App() {
   return (
     <div>
       <h1>Ratings & Reviews</h1>
-      <div className='main'>
+      <div className={styles.main}>
         <div>
           <Total id={randomId} />
           <Breakdown />

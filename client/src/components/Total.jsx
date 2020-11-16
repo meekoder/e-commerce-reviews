@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import styles from '../../../public/styles.css';
 
 function Total(props) {
   const [reviewCount, setReviewCount] = useState(0);
@@ -22,7 +23,7 @@ function Total(props) {
   });
 
   return (
-    <div className='total'>
+    <div className={styles.total}>
       <h1>{reviewCount} Reviews</h1>
       <h2>{averageStars}</h2>
     </div>
