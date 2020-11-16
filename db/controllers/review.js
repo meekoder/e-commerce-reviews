@@ -6,19 +6,17 @@ const getReviews = (cb) => {
       console.log(err);
       cb(err, null);
     } else {
-      console.log(data);
       cb(null, data);
     }
   });
 };
 
-const getReview = (query, cb) => {
-  Reviews.findOne(query, (err, data) => {
+const getShoeReviews = (id, cb) => {
+  Reviews.findOne(id, (err, data) => {
     if (err) {
       console.log(err);
       cb(err, null);
     } else {
-      console.log(data);
       cb(null, data);
     }
   });
@@ -30,48 +28,43 @@ const addReview = (review, cb) => {
       console.log(err);
       cb(err, null);
     } else {
-      console.log(data);
       cb(null, data);
     }
   });
 };
 
-const getHelpful = (cb) => {
-  Reviews.findAll((err, data) => {
+const getHelpful = (id, cb) => {
+  Reviews.findOne(id, (err, data) => {
     if (err) {
       console.log(err);
       cb(err, null);
     } else {
-      data = data.filter(d => d.helpfulYes > 0);
-      data.sort((a, b) => {
-        return b.helpfulYes - a.helpfulYes;
-      });
-      cb(null, data);
-    }
-  })
-};
-
-const getNewest = (cb) => {
-  Reviews.findAll((err, data) => {
-    if (err) {
-      console.log(err);
-      cb(err, null);
-    } else {
-      data.sort((a, b) => {
-        return new Date(b.reviewDate) - new Date(a.reviewDate);
-      });
+      data[0].reviews = data[0].reviews.filter((d) => d.helpfulYes > 0);
+      data[0].reviews.sort((a, b) => b.helpfulYes - a.helpfulYes);
       cb(null, data);
     }
   });
 };
 
-const getRelevant = (cb) => {
-  Reviews.findAll((err, data) => {
+const getNewest = (id, cb) => {
+  Reviews.findOne(id, (err, data) => {
     if (err) {
       console.log(err);
       cb(err, null);
     } else {
-      data = data.filter(d => d.verified > 0);
+      data[0].reviews.sort((a, b) => new Date(b.reviewDate) - new Date(a.reviewDate));
+      cb(null, data);
+    }
+  });
+};
+
+const getRelevant = (id, cb) => {
+  Reviews.findOne(id, (err, data) => {
+    if (err) {
+      console.log(err);
+      cb(err, null);
+    } else {
+      data[0].reviews = data[0].reviews.filter((d) => d.verified > 0);
       cb(null, data);
     }
   });
@@ -79,9 +72,9 @@ const getRelevant = (cb) => {
 
 module.exports = {
   getReviews,
-  getReview,
+  getShoeReviews,
   addReview,
   getHelpful,
   getNewest,
-  getRelevant
+  getRelevant,
 };

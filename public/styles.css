@@ -1,0 +1,26 @@
+img {
+  width: 85px;
+  height: 85px;
+}
+
+.main,
+.helpful,
+.verifiedUser,
+.stars {
+  display: flex;
+  flex-direction: row;
+}
+
+.summary {
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.stars {
+  justify-content: space-between;
+}
+
+.total {
+  background-color: #2ada71;
+}
+
