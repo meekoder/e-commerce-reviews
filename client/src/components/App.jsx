@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import Reviews from './Reviews';
 import Total from './Total';
+import Breakdown from './Breakdown';
+import Opinions from './Opinions';
 
 function App() {
   const [shoeData, setShoeData] = useState([]);
@@ -16,9 +18,16 @@ function App() {
 
   return (
     <div>
-      <h1>Reviews</h1>
-      <Total id={randomId} />
-      {shoeData.length > 0 && <Reviews shoes={shoeData} />}
+      <h1>Ratings & Reviews</h1>
+      <div className='main'>
+        <div>
+          <Total id={randomId} />
+          <Breakdown />
+          <hr />
+          <Opinions />
+        </div>
+        {shoeData.length > 0 && <Reviews shoes={shoeData} />}
+      </div>
     </div>
   );
 }

@@ -3,6 +3,7 @@ img {
   height: 85px;
 }
 
+.main,
 .helpful,
 .verifiedUser,
 .stars {
@@ -18,3 +19,8 @@ img {
 .stars {
   justify-content: space-between;
 }
+
+.total {
+  background-color: #2ada71;
+}
+

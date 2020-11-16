@@ -20,6 +20,7 @@ function Review(props) {
         <p>{`Yes (${props.helpfulYes})`}</p>
         <p>{`No (${props.helpfulNo})`}</p>
       </div>
+      <hr />
     </div>
   )
 }
