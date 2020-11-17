@@ -10,7 +10,20 @@ function Review(props) {
       </div>
       <h5 className={styles.summary}>{props.summary}</h5>
       <p className={styles.reviewText}>{props.fullReview}</p>
-      {props.recommended === 1 && <p className={styles.recommended}>I recommend this product</p>}
+      {props.recommended === 1 &&
+          (
+            <div className={styles.check}>
+              <p className={styles.recommended}>
+                <span>
+                  <svg id={styles.checkmark} viewBox="0 0 19 19">
+                    <title>checkmark</title>
+                    <path fill="none" stroke="currentColor" strokeLinecap="square" strokeMiterLimit="10" d="M2.5 10.5l4 4 10-10" />
+                  </svg>
+                </span>
+                I recommend this product
+              </p>
+            </div>
+          )}
       {props.image && <img src={props.image}/>}
       <div className={styles.verifiedUser}>
         <span className={styles.user}>{props.user}</span>

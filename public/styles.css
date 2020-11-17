@@ -2,10 +2,19 @@ body {
   font-family: 'AdiHaus';
 }
 
+#checkmark {
+  height: 19px;
+}
+
+.check {
+  font-weight: 400;
+  height: 19px;
+  margin-right: 6px;
+}
+
 .container {
   width: 970px;
   max-width: 970px;
-  /* margin: 0px, 211.5px, 114px, 211.5px; */ 
   margin-left: 211.5px;
   margin-right: 211.5px;
   margin-top: 0;
