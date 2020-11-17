@@ -2,6 +2,11 @@ import React from 'react';
 import styles from '../../../public/styles.css';
 
 function Review(props) {
+  const reviewDate = new Date(props.date);
+  console.log(reviewDate)
+  const options = { month: 'long' };
+  const year = reviewDate.getFullYear();
+
   return (
     <div className={styles.review}>
       <div className={styles.stars}>
@@ -17,7 +22,7 @@ function Review(props) {
                 <span>
                   <svg id={styles.checkmark} viewBox="0 0 19 19">
                     <title>checkmark</title>
-                    <path fill="none" stroke="currentColor" strokeLinecap="square" strokeMiterLimit="10" d="M2.5 10.5l4 4 10-10" />
+                    <path fill="none" stroke="currentColor" strokeLinecap="square" strokeMiterlimit="10" d="M2.5 10.5l4 4 10-10" />
                   </svg>
                 </span>
                 I recommend this product
@@ -27,7 +32,7 @@ function Review(props) {
       {props.image && <img src={props.image}/>}
       <div className={styles.verifiedUser}>
         <span className={styles.user}>{props.user}</span>
-        {props.verified === 1 && <p>- Verified Purchaser</p>}
+        {props.verified === 1 && <p className={styles.verified}>- Verified Purchaser</p>}
       </div>
       <div className={styles.helpful}>
         <p>Was this review helpful?</p>
