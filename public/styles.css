@@ -1,19 +1,100 @@
+body {
+  font-family: 'AdiHaus';
+}
+
+.container {
+  width: 970px;
+  max-width: 970px;
+  /* margin: 0px, 211.5px, 114px, 211.5px; */ 
+  margin-left: 211.5px;
+  margin-right: 211.5px;
+  margin-top: 0;
+  padding-left: 60px;
+  padding-right: 60px;
+  padding-top: 6px;
+}
+
+h5 {
+  font-size: 30px;
+  font-weight: 600;
+  margin-bottom: 20px;
+  padding: 0;
+}
+
+.percent {
+  font-size: 66px;
+  font-weight: 600;
+  margin: 0;
+  padding: 0;
+}
+
 img {
   width: 85px;
   height: 85px;
 }
 
-.main,
-.helpful,
-.verifiedUser,
-.stars {
+.breakdown {
+  border-bottom: 1px solid #ebedee;
+}
+
+.avgStars {
+  font-family: 'AdihausDIN';
+  font-size: 56px;
+  font-weight: 700;
+}
+
+.reviewCount,
+.recommend {
+  font-family: 'AdihausDIN';
+  font-size: 16px;
+  font-weight: 400;
+}
+
+.percentContainer {
+  margin-top: 20px;
+}
+
+.main {
   display: flex;
   flex-direction: row;
 }
 
+.helpful,
+.verifiedUser,
+.stars,
+.voteAlign {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.reviewText,
+.helpful,
+.verifiedUser,
+.recommended {
+  font-family: 'AdihausDIN';
+}
+
+.starFilter,
+.vote {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.filters {
+  display: flex;
+  align-items: center;
+}
+
+.verifiedUser {
+  font-weight: 400;
+}
+
 .summary {
-  font-weight: bold;
-  font-size: 18px;
+  font-weight: 600;
+  font-size: 20px;
+  text-transform: uppercase;
+  letter-spacing: 0.7px;
 }
 
 .stars {
@@ -21,6 +102,35 @@ img {
 }
 
 .total {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100px;
+  width: 266.328px;
   background-color: #2ada71;
 }
 
+.review {
+  border-bottom: 1px solid #000000;
+  position: relative;
+  padding-bottom: 40px;
+}
+
+.vote,
+.voteCount,
+.date {
+  font-size: 14px;
+  font-weight: 400;
+  font-family: 'AdihausDIN';
+}
+
+.voteCount,
+.date {
+  color: #767677;
+}
+
+.verifiedUser,
+.user {
+  font-size: 14px;
+  font-weight: 700;
+}

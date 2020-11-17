@@ -70,6 +70,18 @@ const getRelevant = (id, cb) => {
   });
 };
 
+const getStars = (id, starCount, cb) => {
+  Reviews.findOne(id, (err, data) => {
+    if (err) {
+      console.log(err);
+      cb(err, null);
+    } else {
+      data[0].reviews = data[0].reviews.filter((d) => d.stars == starCount);
+      cb(null, data);
+    }
+  });
+};
+
 module.exports = {
   getReviews,
   getShoeReviews,
@@ -77,4 +89,5 @@ module.exports = {
   getHelpful,
   getNewest,
   getRelevant,
+  getStars,
 };

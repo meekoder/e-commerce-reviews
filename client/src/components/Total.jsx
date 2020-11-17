@@ -1,31 +1,14 @@
-import React, { useState, useEffect } from 'react';
-import axios from 'axios';
+import React, { useContext } from 'react';
 import styles from '../../../public/styles.css';
+import ReviewContext from './ReviewContext';
 
-function Total(props) {
-  const [reviewCount, setReviewCount] = useState(0);
-  const [averageStars, setAverageStars] = useState(0);
-
-  useEffect(() => {
-    axios
-      .get(`/api/shoes/${props.id}`)
-      .then((res) => {
-        const reviews = res.data[0].reviews;
-        const numOfReviews = reviews.length;
-
-        let starCount = 0;
-        setReviewCount(numOfReviews);
-        reviews.forEach(review => starCount += review.stars);
-        const avgStars = starCount / reviewCount;
-        setAverageStars(avgStars.toFixed(1));
-      })
-      .catch((err) => console.log(err));
-  });
+function Total() {
+  const { reviewTotal, averageStars } = useContext(ReviewContext);
 
   return (
     <div className={styles.total}>
-      <h1>{reviewCount} Reviews</h1>
-      <h2>{averageStars}</h2>
+      <div className={styles.avgStars}>{averageStars}</div>
+      <div className={styles.reviewCount}><strong>{reviewTotal}</strong> Reviews</div>
     </div>
   );
 }
