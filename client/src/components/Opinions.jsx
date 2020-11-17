@@ -1,8 +1,12 @@
 import React from 'react';
+import styles from '../../../public/styles.css';
 
 function Opinions() {
   return (
-    <h4>of customers recommend this product</h4>
+    <div className={styles.percentContainer}>
+      <h4 className={styles.percent}>%</h4>
+      <span className={styles.recommend}>of customers recommend this product</span>
+    </div>
   );
 }
 
