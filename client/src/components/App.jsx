@@ -6,7 +6,8 @@ import Total from './Total';
 import Breakdown from './Breakdown';
 import Opinions from './Opinions';
 import Buttons from './writeReview/Buttons';
-import Menu from './Menu.jsx';
+import Comparisons from './comparisons/Comparisons';
+import Menu from './Menu';
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
             <Total />
             <Breakdown />
             <Opinions />
+            <Comparisons />
           </div>
           <div className={styles.listBtn}>
             <Menu />
