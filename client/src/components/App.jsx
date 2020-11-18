@@ -5,6 +5,7 @@ import Reviews from './Reviews';
 import Total from './Total';
 import Breakdown from './Breakdown';
 import Opinions from './Opinions';
+import Buttons from './writeReview/Buttons';
 
 function App() {
   return (
@@ -18,7 +19,10 @@ function App() {
               <Breakdown />
               <Opinions />
             </div>
-            <Reviews />
+            <div className={styles.listBtn}>
+              <Reviews />
+              <Buttons />
+            </div>
           </div>
         </div>
       </section>
