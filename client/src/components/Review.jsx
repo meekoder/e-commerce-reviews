@@ -1,5 +1,6 @@
 import React from 'react';
 import styles from '../../../public/styles.css';
+import Stars from './Stars';
 
 function Review(props) {
   const reviewDate = new Date(props.date);
@@ -11,7 +12,8 @@ function Review(props) {
   return (
     <div className={styles.review}>
       <div className={styles.stars}>
-        <p>{props.stars}</p>
+        <Stars />
+        {/* <p>{props.stars}</p> */}
         <p className={styles.date}>{`${month} ${day}, ${year}`}</p>
       </div>
       <h5 className={styles.summary}>{props.summary}</h5>

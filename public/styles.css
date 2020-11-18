@@ -35,6 +35,7 @@ progress[value]::-webkit-progress-value {
   padding-left: 60px;
   padding-right: 60px;
   padding-top: 6px;
+  justify-content: space-between;
 }
 
 h5 {
@@ -88,6 +89,7 @@ img {
 .main {
   display: flex;
   flex-direction: row;
+  justify-content: space-between;
   width: 889px;
 }
 
@@ -215,9 +217,10 @@ img {
   border: 1px solid black;
   box-sizing: border-box;
   transform: translate(-3px, -3px);
-  &:active {
-    transform: translate(0px, 0px);
-  }
+}
+
+.writeReviewBtn:active {
+  transform: translate(0px, 0px);
   transition: transform .1s;
 }
 
@@ -237,9 +240,9 @@ img {
   padding: 0 21px;
   cursor: pointer;
   box-sizing: border-box;
-  &:hover {
-    opacity: 50%;
-  }
+}
+.wrapper:hover {
+  opacity: 50%;
 }
 
 .writeReviewText {
@@ -273,9 +276,10 @@ img {
   border: 1px solid black;
   box-sizing: border-box;
   cursor: pointer;
-  &:active {
-    transform: scale(.95, .95);
-  }
+}
+
+.loadMoreBtn:active {
+  transform: scale(.95, .95);
   transition: transform .1s;
 }
 
@@ -292,4 +296,45 @@ img {
   justify-content: space-between;
   margin-top: 40px;
   box-sizing: border-box;
+}
+
+
+.starContainer {
+  display: flex;
+  color: 'black';
+}
+
+.star {
+  margin-right: 5px;
+}
+
+.starReviewCount {
+  display: flex;
+  flex-direction: column;
+  padding-left: 8px;
+}
+
+.menu {
+  list-style: none;
+  display: flex;
+  padding: 0;
+  margin: 0;
+}
+
+li {
+  border: 1px solid #767677;
+  flex-grow: 1;
+  margin-bottom: 14px;
+  margin-left: 0;
+}
+
+button {
+  color: #767677;
+  font-family: 'AdihausDIN';
+  font-size: 14px;
+  cursor: pointer;
+  padding: 16px 10px;
+  width: 100%;
+  background: none;
+  border: none;
 }
