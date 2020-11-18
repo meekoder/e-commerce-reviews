@@ -12,10 +12,10 @@ import Menu from './Menu';
 function App() {
   return (
     <ReviewProvider>
-      <section className={styles.container}>
+      <div className={styles.container}>
         <h5>RATINGS & REVIEWS</h5>
         <div className={styles.main}>
-          <div>
+          <div className={styles.ratings}>
             <Total />
             <Breakdown />
             <Opinions />
@@ -27,7 +27,7 @@ function App() {
             <Buttons />
           </div>
         </div>
-      </section>
+      </div>
     </ReviewProvider>
   );
 }

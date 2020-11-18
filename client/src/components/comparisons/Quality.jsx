@@ -5,7 +5,7 @@ import Bar from './Bar';
 function Quality() {
   return (
     <div className={styles.comparison}>
-      <div>QUALITY</div>
+      <div className={styles.barTitle}>QUALITY</div>
       <Bar />
       <div className={styles.barLabels}>
         <span>POOR</span>

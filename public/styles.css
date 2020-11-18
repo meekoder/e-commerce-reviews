@@ -27,22 +27,30 @@ progress[value]::-webkit-progress-value {
 }
 
 .container {
-  width: 970px;
+  /* opacity: 1; */
+  /* transform: none; */
+  /* transition: transform 1s cubic-bezier(.2,.8,.4,1),opacity 1s cubic-bezier(.2,.8,.4,1); */
+  width: 100%;
   max-width: 970px;
-  margin-left: 211.5px;
-  margin-right: 211.5px;
-  margin-top: 0;
+  margin-bottom: 74px;
   padding-left: 60px;
   padding-right: 60px;
   padding-top: 6px;
-  justify-content: space-between;
 }
 
 h5 {
   font-size: 30px;
-  line-height: 24px;
+  line-height: 28px;
+  font-weight: 600px;
   margin-bottom: 20px;
   padding: 0;
+}
+
+h6 {
+  font-size: 20px;
+  line-height: 18px;
+  margin: 0;
+  margin-bottom: 20px;
 }
 
 .percent {
@@ -50,6 +58,16 @@ h5 {
   font-weight: 600;
   margin: 0;
   padding: 0;
+  margin-top: 20px;
+  height: 76.5px;
+}
+
+.barTitle {
+  font-size: 13px;
+  font-family: 'AdihausDIN';
+  font-weight: 400;
+  margin-bottom: 7px;
+  letter-spacing: 2px;
 }
 
 img {
@@ -73,6 +91,7 @@ img {
   font-family: 'AdihausDIN';
   font-size: 56px;
   font-weight: 700;
+  padding-right: 8px;
 }
 
 .reviewCount,
@@ -82,6 +101,9 @@ img {
   font-weight: 400;
 }
 
+.ratings {
+  width: 275px;
+}
 .percentContainer {
   margin-top: 20px;
 }
@@ -90,7 +112,8 @@ img {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  width: 889px;
+  width: 872px;
+  margin: 0;
 }
 
 .helpful,
@@ -147,8 +170,21 @@ img {
   margin: 0;
 }
 
+.starFilter {
+  font-size: 13px;
+  letter-spacing: 2px;
+}
+
+.starCount {
+  font-size: 11px;
+  font-family: 'AdihausDIN';
+  letter-spacing: 2px;
+  line-height: 15px;
+}
+
 .stars {
   justify-content: space-between;
+  margin-bottom: 6px;
 }
 
 .total {
@@ -156,7 +192,7 @@ img {
   align-items: center;
   justify-content: center;
   height: 100px;
-  width: 266.328px;
+  width: 100%;
   background-color: #2ada71;
 }
 
@@ -203,7 +239,7 @@ img {
 
 .grid {
   display: grid;
-  width: 309px;
+  width: 50%;
   height: 50px;
   box-sizing: border-box;
 }
@@ -212,7 +248,7 @@ img {
   grid-column: 1;
   grid-row: 1;
   background-color: black;
-  width: 309px;
+  width: 100%;
   height: 50px;
   border: 1px solid black;
   box-sizing: border-box;
@@ -266,13 +302,15 @@ img {
 .listBtn {
   display: flex;
   flex-direction: column;
+  width: calc(66.66667% - 15px);
 }
 
 .loadMoreBtn {
   display: flex;
   align-items: center;
-  width: 309px;
+  width: 50%;
   height: 50px;
+  margin-right: 10px;
   border: 1px solid black;
   box-sizing: border-box;
   cursor: pointer;
@@ -324,8 +362,22 @@ img {
 li {
   border: 1px solid #767677;
   flex-grow: 1;
+  flex-basis: 0;
   margin-bottom: 14px;
   margin-left: 0;
+  line-height: 20px;
+}
+
+li:active {
+  font-size: 14px;
+  margin-bottom: 14px;
+  font-family: 'AdihausDIN';
+  font-style: normal;
+  background-color: #fff;
+  border-color: #000;
+  line-height: 16px;
+  position: relative;
+  z-index: 1;
 }
 
 button {
@@ -336,7 +388,14 @@ button {
   padding: 16px 10px;
   width: 100%;
   background: none;
+  outline: none;
   border: none;
+}
+
+button:active {
+  color: #000;
+  box-shadow: inset 0 -2px 0 #000;
+  font-weight: 700;
 }
 
 .comparisonBar {
@@ -380,7 +439,7 @@ button {
   display: flex;
   justify-content: space-between;
   letter-spacing: 2px;
-  font-size: 12px;
+  font-size: 11px;
   font-family: 'AdihausDIN';
   margin-top: 10px;
 }

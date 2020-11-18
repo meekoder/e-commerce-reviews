@@ -73,32 +73,32 @@ function Breakdown() {
 
   return (
     <div className={styles.breakdown}>
-      <h1>RATING BREAKDOWN</h1>
+      <h6>RATING BREAKDOWN</h6>
       <div className={styles.filters}>
         {console.log(avgStars)}
         <h4 onClick={renderFiveStar} className={starCount[4] > 0 ? styles.starFilter : null}>5 STARS</h4>
         <progress value={avgStars[0]} max="100"> `${avgStars[0]}%` </progress>
-        <div>{starCount[4]}</div>
+        <div className={styles.starCount}>{starCount[4]}</div>
       </div>
       <div className={styles.filters}>
         <h4 onClick={renderFourStar} className={starCount[3] > 0 ? styles.starFilter : null}>4 STARS</h4>
         <progress value={avgStars[1]} max="100"> `${avgStars[1]}%` </progress>
-        <div>{starCount[3]}</div>
+        <div className={styles.starCount}>{starCount[3]}</div>
       </div>
       <div className={styles.filters}>
         <h4 onClick={renderThreeStar} className={starCount[2] > 0 ? styles.starFilter : null}>3 STARS</h4>
         <progress value={avgStars[2]} max="100"> `${avgStars[2]}%` </progress>
-        <div>{starCount[2]}</div>
+        <div className={styles.starCount}>{starCount[2]}</div>
       </div>
       <div className={styles.filters}>
         <h4 onClick={renderTwoStar} className={starCount[1] > 0 ? styles.starFilter : null}>2 STARS</h4>
         <progress value={avgStars[3]} max="100"> `${avgStars[3]}%` </progress>
-        <div>{starCount[1]}</div>
+        <div className={styles.starCount}>{starCount[1]}</div>
       </div>
       <div className={styles.filters}>
         <h4 onClick={renderOneStar} className={starCount[0] > 0 ? styles.starFilter : null}>1 STARS</h4>
         <progress value={avgStars[4]} max="100"> `${avgStars[4]}%` </progress>
-        <div>{starCount[0]}</div>
+        <div className={styles.starCount}>{starCount[0]}</div>
       </div>
     </div>
   );

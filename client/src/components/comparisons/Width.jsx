@@ -5,7 +5,7 @@ import Bar from './Bar';
 function Width() {
   return (
     <div className={styles.comparison}>
-      <div>WIDTH</div>
+      <div className={styles.barTitle}>WIDTH</div>
       <Bar />
       <div className={styles.barLabels}>
         <span>TOO NARROW</span>

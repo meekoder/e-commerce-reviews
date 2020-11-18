@@ -5,7 +5,7 @@ import Bar from './Bar';
 function Comfort() {
   return (
     <div className={styles.comparison}>
-      <div>COMFORT</div>
+      <div className={styles.barTitle}>COMFORT</div>
       <Bar />
       <div className={styles.barLabels}>
         <span>UNCOMFORTABLE</span>
