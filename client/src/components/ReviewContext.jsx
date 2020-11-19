@@ -6,7 +6,7 @@ const ReviewContext = createContext();
 
 export const ReviewProvider = ({ children }) => {
   const [reviews, setReviews] = useState([]);
-  const [currentShoe, setCurrentShoe] = useState(0);
+  const [currentShoe, setCurrentShoe] = useState(30);
   const [reviewTotal, setReviewTotal] = useState(0);
   const [averageStars, setAverageStars] = useState(0);
   const [averageSize, setAverageSize] = useState(0);

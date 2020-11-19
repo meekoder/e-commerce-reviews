@@ -64,6 +64,7 @@ h6 {
 img {
   width: 85px;
   height: 85px;
+  margin-top: 20px;
 }
 
 .helpful {
@@ -166,6 +167,12 @@ img {
 .starFilter {
   font-size: 13px;
   letter-spacing: 2px;
+  transition: color .1s, background-color .1s;
+}
+
+.starFilter:hover {
+  background-color: black;
+  color: white;
 }
 
 .starCount {
@@ -232,7 +239,6 @@ img {
 
 .grid {
   display: grid;
-  width: 50%;
   height: 50px;
   box-sizing: border-box;
 }
