@@ -1,5 +1,4 @@
 import React from 'react';
-import styles from '../../../../public/styles.css';
 import Size from './Size';
 import Width from './Width';
 import Comfort from './Comfort';

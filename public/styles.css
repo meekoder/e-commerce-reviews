@@ -11,7 +11,6 @@ progress[value] {
   -webkit-appearance: none;
    appearance: none;
    height: 4px;
-
 }
 
 progress[value]::-webkit-progress-bar {
@@ -62,14 +61,6 @@ h6 {
   height: 76.5px;
 }
 
-.barTitle {
-  font-size: 13px;
-  font-family: 'AdihausDIN';
-  font-weight: 400;
-  margin-bottom: 7px;
-  letter-spacing: 2px;
-}
-
 img {
   width: 85px;
   height: 85px;
@@ -104,6 +95,7 @@ img {
 .ratings {
   width: 275px;
 }
+
 .percentContainer {
   margin-top: 20px;
 }
@@ -165,6 +157,7 @@ img {
 .reviewText {
   margin-top: 10px;
 }
+
 .user {
   text-transform: uppercase;
   margin: 0;
@@ -399,28 +392,6 @@ button:active {
   font-weight: 700;
 }
 
-.comparisonBar {
-  height: 4px;
-  background-color: #767677;
-  position: relative;
-}
-
-.gaps {
-  display: flex;
-  justify-content: space-between;
-  height: 100%;
-  width: 100%;
-}
-
-.gap {
-  background-color: #fff;
-  height: 4px;
-  width: 4px;
-  top: 0;
-  z-index: 2;
-  position: absolute;
-}
-
 #gap2 {
   left: 25%;
   margin-left: -2px;
@@ -434,31 +405,4 @@ button:active {
 #gap4 {
   left: 75%;
   margin-left: -2px;
-}
-
-.barLabels {
-  display: flex;
-  justify-content: space-between;
-  letter-spacing: 2px;
-  font-size: 11px;
-  font-family: 'AdihausDIN';
-  margin-top: 10px;
-}
-
-.triangle {
-  border-top-color: #2ada71;
-  transform: translateX(-50%);
-  left: 61%;
-  background-color: transparent;
-  position: absolute;
-  height: auto;
-  top: -8px;
-  width: 0;
-  border-color: #2ada71 transparent transparent;
-  border-style: solid;
-  border-width: 20px 10px;
-}
-
-.comparison {
-  margin-top: 20px;
 }

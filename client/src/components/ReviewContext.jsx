@@ -13,6 +13,7 @@ export const ReviewProvider = ({ children }) => {
   const [averageWidth, setAverageWidth] = useState(0);
   const [averageComfort, setAverageComfort] = useState(0);
   const [averageQuality, setAverageQuality] = useState(0);
+  const [averageRecommended, setAverageRecommended] = useState(0);
 
   useEffect(() => {
     axios
@@ -34,7 +35,10 @@ export const ReviewProvider = ({ children }) => {
         const qualityTotal = reviewsArr.reduce((a, b) => {
           return a + b.quality;
         }, 0);
-
+        const recommendedTotal = reviewsArr.reduce((a, b) => {
+          return a + b.recommended;
+        }, 0);
+        
         setReviews(response.data);
         setReviewTotal(reviewsArr.length);
         setAverageStars((starTotal / reviewsArr.length).toFixed(1));
@@ -42,6 +46,7 @@ export const ReviewProvider = ({ children }) => {
         setAverageWidth((widthTotal / reviewsArr.length));
         setAverageComfort((comfortTotal / reviewsArr.length));
         setAverageQuality((qualityTotal / reviewsArr.length));
+        setAverageRecommended((recommendedTotal / reviewsArr.length));
       })
       .catch((err) => console.log(err));
   }, []);
@@ -57,6 +62,7 @@ export const ReviewProvider = ({ children }) => {
       averageWidth,
       averageComfort,
       averageQuality,
+      averageRecommended,
     }}
     >
       {children}
