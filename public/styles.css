@@ -277,6 +277,7 @@ img {
   cursor: pointer;
   box-sizing: border-box;
 }
+
 .wrapper:hover {
   opacity: 50%;
 }
