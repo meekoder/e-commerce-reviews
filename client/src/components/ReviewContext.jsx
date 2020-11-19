@@ -17,7 +17,7 @@ export const ReviewProvider = ({ children }) => {
 
   useEffect(() => {
     axios
-      .get(`/api/shoes/${currentShoe}`)
+      .get(`/api/shoes/${currentShoe}/newest`)
       .then((response) => {
         const reviewsArr = response.data[0].reviews;
         const starTotal = reviewsArr.reduce((a, b) => {
@@ -38,7 +38,6 @@ export const ReviewProvider = ({ children }) => {
         const recommendedTotal = reviewsArr.reduce((a, b) => {
           return a + b.recommended;
         }, 0);
-        
         setReviews(response.data);
         setReviewTotal(reviewsArr.length);
         setAverageStars((starTotal / reviewsArr.length).toFixed(1));

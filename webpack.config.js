@@ -5,7 +5,7 @@ const APP_DIR = path.resolve(__dirname, 'client'); // where the pre-transpiled c
 
 module.exports = {
   mode: 'development',
-  resolve: { extensions: ['.js', '.jsx'] },
+  resolve: { extensions: ['.js', '.jsx', '.json', '.css'] },
   entry: APP_DIR + '/src/index.jsx', // need to reference the point where we call reactdom.render
   output: {
     path: BUILD_DIR, //where we want to put bundle.js usually wherever index.html is

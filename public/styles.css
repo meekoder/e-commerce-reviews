@@ -380,6 +380,18 @@ li:active {
   z-index: 1;
 }
 
+li::after {
+  font-size: 14px;
+  margin-bottom: 14px;
+  font-family: 'AdihausDIN';
+  font-style: normal;
+  background-color: #fff;
+  border-color: #000;
+  line-height: 16px;
+  position: relative;
+  z-index: 1;
+}
+
 button {
   color: #767677;
   font-family: 'AdihausDIN';

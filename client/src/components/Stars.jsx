@@ -10,10 +10,10 @@ function Stars({ fill }) {
     <span className={styles.starContainer}>
       <div className={styles.stars}>
         <Star fill={avg} />
-        <Star fill={avg - 1}/>
-        <Star fill={avg - 2}/>
-        <Star fill={avg - 3}/>
-        <Star fill={avg - 4}/>
+        <Star fill={avg - 1} />
+        <Star fill={avg - 2} />
+        <Star fill={avg - 3} />
+        <Star fill={avg - 4} />
       </div>
     </span>
   );

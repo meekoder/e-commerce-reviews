@@ -21,6 +21,7 @@ const Triangle = styled.div`
   border-color: #2ada71 transparent transparent;
   border-style: solid;
   border-width: 20px 10px;
+  z-index: 3;
 `;
 
 const Title = styled.div`
@@ -62,11 +63,11 @@ const BarLabels = styled.div`
 
 function Width() {
   const { averageWidth } = useContext(ReviewContext);
-  const avg = averageWidth * 10;
+  const avg = averageWidth * 20;
 
   return (
     <Comparison>
-      <Title />
+      <Title>WIDTH</Title>
       <Bar>
         <Triangle average={avg} />
         <Gaps>

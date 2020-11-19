@@ -2,7 +2,6 @@ import React from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 
-// to place 2 stars on top of eachother
 const StarContainer = styled.div`
   display: grid;
 `;
@@ -14,8 +13,6 @@ const SingleStar = styled.div`
   overflow: hidden;
 `;
 
-// Calculates how much fill in each star
-// 4.8 rating would feed this 4.8, then 3.8, then 2.8, then 1.8, then 0.8 (see other file)
 function Star({ fill }) {
   let percentage;
   if (fill >= 1) {

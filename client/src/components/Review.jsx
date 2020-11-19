@@ -13,7 +13,6 @@ function Review(props) {
     <div className={styles.review}>
       <div className={styles.stars}>
         <Stars fill={props.stars} />
-        {/* <p>{props.stars}</p> */}
         <p className={styles.date}>{`${month} ${day}, ${year}`}</p>
       </div>
       <h5 className={styles.summary}>{props.summary}</h5>

@@ -1,5 +1,6 @@
 const { MongoClient } = require('mongodb');
-const Shoe = require('../db/models/review.js');
+const regeneratorRuntime = require('regenerator-runtime');
+const Shoe = require('../../db/models/review.js');
 
 const testData = {
   id: 101,

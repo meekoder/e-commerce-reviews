@@ -21,6 +21,7 @@ const Triangle = styled.div`
   border-color: #2ada71 transparent transparent;
   border-style: solid;
   border-width: 20px 10px;
+  z-index: 3;
 `;
 
 const Title = styled.div`
@@ -66,7 +67,7 @@ function Quality() {
 
   return (
     <Comparison>
-      <Title />
+      <Title>QUALITY</Title>
       <Bar>
         <Triangle average={avg} />
         <Gaps>
