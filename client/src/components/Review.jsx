@@ -4,10 +4,10 @@ import Stars from './Stars';
 
 function Review(props) {
   const reviewDate = new Date(props.date);
+  const day = reviewDate.getDate();
+  const year = reviewDate.getFullYear();
   const options = { month: 'long' };
   const month = new Intl.DateTimeFormat('en-US', options).format(reviewDate);
-  const day = reviewDate.getDay();
-  const year = reviewDate.getFullYear();
 
   return (
     <div className={styles.review}>

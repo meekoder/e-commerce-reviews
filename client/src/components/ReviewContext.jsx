@@ -13,7 +13,11 @@ export const ReviewProvider = ({ children }) => {
   const [averageWidth, setAverageWidth] = useState(0);
   const [averageComfort, setAverageComfort] = useState(0);
   const [averageQuality, setAverageQuality] = useState(0);
-  const [averageRecommended, setAverageRecommended] = useState(0);
+  const [averageRecommended, setAverageRecommended] = useState(0)
+  const [newestClicked, setNewestClicked] = useState(true);
+  const [helpfulClicked, setHelpfulClicked] = useState(false);
+  const [relevantClicked, setRelevantClicked] = useState(false);
+
 
   useEffect(() => {
     axios
@@ -62,6 +66,12 @@ export const ReviewProvider = ({ children }) => {
       averageComfort,
       averageQuality,
       averageRecommended,
+      newestClicked,
+      helpfulClicked,
+      relevantClicked,
+      setNewestClicked,
+      setHelpfulClicked,
+      setRelevantClicked,
     }}
     >
       {children}
