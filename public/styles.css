@@ -43,9 +43,11 @@ h5 {
   font-weight: 600px;
   margin-bottom: 20px;
   padding: 0;
+  font-family: 'adineue pro bold web';
 }
 
 h6 {
+  font-family: 'adineue pro bold web';
   font-size: 20px;
   line-height: 18px;
   margin: 0;
@@ -53,6 +55,7 @@ h6 {
 }
 
 .percent {
+  font-family: 'adineue pro bold web';
   font-size: 66px;
   font-weight: 600;
   margin: 0;
@@ -68,6 +71,7 @@ img {
 }
 
 .helpful {
+  font-size: 14px;
   margin-top: 20px;
   margin-bottom: 0px;
   height: 20px;
@@ -184,7 +188,6 @@ img {
 
 .stars {
   justify-content: space-between;
-  margin-bottom: 6px;
 }
 
 .total {
@@ -339,12 +342,6 @@ img {
   justify-content: space-between;
   margin-top: 40px;
   box-sizing: border-box;
-}
-
-
-.starContainer {
-  display: flex;
-  color: 'black';
 }
 
 .star {
