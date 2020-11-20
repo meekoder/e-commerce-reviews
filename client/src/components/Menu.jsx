@@ -1,6 +1,6 @@
-import React, { useState, useContext } from 'react';
-import ReviewContext from './ReviewContext';
+import React, { useContext } from 'react';
 import axios from 'axios';
+import ReviewContext from './ReviewContext';
 import styles from '../../../public/styles.css';
 
 function Menu() {

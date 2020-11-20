@@ -207,6 +207,7 @@ img {
 }
 
 .vote:hover {
+  transition: color .1s cubic-bezier(.3,0,.45,1),background-color .1s cubic-bezier(.3,0,.45,1);
   background-color: black;
   color: white;
 }
@@ -396,6 +397,10 @@ button {
   outline: none;
   border: none;
   transition: color .1s cubic-bezier(.3,0,.45,1);
+}
+
+button:hover {
+  color: #000;
 }
 
 .activeBtn {

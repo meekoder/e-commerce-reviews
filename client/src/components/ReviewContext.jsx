@@ -29,7 +29,7 @@ export const ReviewProvider = ({ children }) => {
         const comfortTotal = reviewsArr.reduce((a, b) => a + b.comfort, 0);
         const qualityTotal = reviewsArr.reduce((a, b) => a + b.quality, 0);
         const recommendedTotal = reviewsArr.reduce((a, b) => a + b.recommended, 0);
-        setReviews(response.data);
+        setReviews(reviewsArr);
         setReviewTotal(reviewsArr.length);
         setAverageStars((starTotal / reviewsArr.length).toFixed(1));
         setAverageSize(sizeTotal / reviewsArr.length);

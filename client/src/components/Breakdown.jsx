@@ -23,7 +23,7 @@ function Breakdown() {
 
   if (reviews.length > 0 && !doneLoading) {
     setDoneLoading(true);
-    setAvgStars([((starCount[4] / reviews[0].reviews.length) * 100), ((starCount[3] / reviews[0].reviews.length) * 100), ((starCount[2] / reviews[0].reviews.length) * 100), ((starCount[1] / reviews[0].reviews.length) * 100), ((starCount[0] / reviews[0].reviews.length) * 100)]);
+    setAvgStars([((starCount[4] / reviews.length) * 100), ((starCount[3] / reviews.length) * 100), ((starCount[2] / reviews.length) * 100), ((starCount[1] / reviews.length) * 100), ((starCount[0] / reviews.length) * 100)]);
   }
 
   function renderFiveStar() {
