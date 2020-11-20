@@ -5,6 +5,7 @@ import axios from 'axios';
 const ReviewContext = createContext();
 
 export const ReviewProvider = ({ children }) => {
+  const [allReviews, setAllReviews] = useState([]);
   const [reviews, setReviews] = useState([]);
   const [currentShoe, setCurrentShoe] = useState(2);
   const [reviewTotal, setReviewTotal] = useState(0);
@@ -29,7 +30,8 @@ export const ReviewProvider = ({ children }) => {
         const comfortTotal = reviewsArr.reduce((a, b) => a + b.comfort, 0);
         const qualityTotal = reviewsArr.reduce((a, b) => a + b.quality, 0);
         const recommendedTotal = reviewsArr.reduce((a, b) => a + b.recommended, 0);
-        setReviews(reviewsArr);
+        setAllReviews(reviewsArr);
+        setReviews(reviewsArr.slice(0, 2));
         setReviewTotal(reviewsArr.length);
         setAverageStars((starTotal / reviewsArr.length).toFixed(1));
         setAverageSize(sizeTotal / reviewsArr.length);
@@ -43,6 +45,7 @@ export const ReviewProvider = ({ children }) => {
 
   return (
     <ReviewContext.Provider value={{
+      allReviews,
       setReviews,
       reviews,
       currentShoe,
