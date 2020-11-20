@@ -46,6 +46,7 @@ export const ReviewProvider = ({ children }) => {
   return (
     <ReviewContext.Provider value={{
       allReviews,
+      setAllReviews,
       setReviews,
       reviews,
       currentShoe,

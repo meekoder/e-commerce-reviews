@@ -12,6 +12,7 @@ function Menu() {
     relevantClicked,
     setRelevantClicked,
     setReviews,
+    setAllReviews,
     currentShoe,
   } = useContext(ReviewContext);
 
@@ -22,7 +23,9 @@ function Menu() {
     axios
       .get(`/api/shoes/${currentShoe}/newest`)
       .then((res) => {
-        setReviews(res.data);
+        const reviews = res.data[0].reviews
+        setReviews(reviews.slice(0, 2));
+        setAllReviews(reviews);
       })
       .catch((err) => console.log(err));
   };
@@ -34,7 +37,9 @@ function Menu() {
     axios
       .get(`/api/shoes/${currentShoe}/helpful`)
       .then((res) => {
-        setReviews(res.data);
+        const reviews = res.data[0].reviews
+        setReviews(reviews.slice(0, 2));
+        setAllReviews(reviews);
       })
       .catch((err) => console.log(err));
   };
@@ -46,7 +51,9 @@ function Menu() {
     axios
       .get(`/api/shoes/${currentShoe}/relevant`)
       .then((res) => {
-        setReviews(res.data);
+        const reviews = res.data[0].reviews
+        setReviews(reviews.slice(0, 2));
+        setAllReviews(reviews);
       })
       .catch((err) => console.log(err));
   };
