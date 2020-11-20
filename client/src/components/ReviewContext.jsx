@@ -18,38 +18,29 @@ export const ReviewProvider = ({ children }) => {
   const [helpfulClicked, setHelpfulClicked] = useState(false);
   const [relevantClicked, setRelevantClicked] = useState(false);
 
+  const addHelpful = () => {
+
+  };
 
   useEffect(() => {
     axios
       .get(`/api/shoes/${currentShoe}/newest`)
       .then((response) => {
         const reviewsArr = response.data[0].reviews;
-        const starTotal = reviewsArr.reduce((a, b) => {
-          return a + b.stars;
-        }, 0);
-        const sizeTotal = reviewsArr.reduce((a, b) => {
-          return a + b.size;
-        }, 0);
-        const widthTotal = reviewsArr.reduce((a, b) => {
-          return a + b.width;
-        }, 0);
-        const comfortTotal = reviewsArr.reduce((a, b) => {
-          return a + b.comfort;
-        }, 0);
-        const qualityTotal = reviewsArr.reduce((a, b) => {
-          return a + b.quality;
-        }, 0);
-        const recommendedTotal = reviewsArr.reduce((a, b) => {
-          return a + b.recommended;
-        }, 0);
+        const starTotal = reviewsArr.reduce((a, b) => a + b.stars, 0);
+        const sizeTotal = reviewsArr.reduce((a, b) => a + b.size, 0);
+        const widthTotal = reviewsArr.reduce((a, b) => a + b.width, 0);
+        const comfortTotal = reviewsArr.reduce((a, b) => a + b.comfort, 0);
+        const qualityTotal = reviewsArr.reduce((a, b) => a + b.quality, 0);
+        const recommendedTotal = reviewsArr.reduce((a, b) => a + b.recommended, 0);
         setReviews(response.data);
         setReviewTotal(reviewsArr.length);
         setAverageStars((starTotal / reviewsArr.length).toFixed(1));
-        setAverageSize((sizeTotal / reviewsArr.length));
-        setAverageWidth((widthTotal / reviewsArr.length));
-        setAverageComfort((comfortTotal / reviewsArr.length));
-        setAverageQuality((qualityTotal / reviewsArr.length));
-        setAverageRecommended((recommendedTotal / reviewsArr.length));
+        setAverageSize(sizeTotal / reviewsArr.length);
+        setAverageWidth(widthTotal / reviewsArr.length);
+        setAverageComfort(comfortTotal / reviewsArr.length);
+        setAverageQuality(qualityTotal / reviewsArr.length);
+        setAverageRecommended(recommendedTotal / reviewsArr.length);
       })
       .catch((err) => console.log(err));
   }, []);

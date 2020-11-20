@@ -1,5 +1,6 @@
 import React, { useState, useContext } from 'react';
 import ReviewContext from './ReviewContext';
+import axios from 'axios';
 import styles from '../../../public/styles.css';
 
 function Menu() {
@@ -10,24 +11,44 @@ function Menu() {
     setHelpfulClicked,
     relevantClicked,
     setRelevantClicked,
+    setReviews,
+    currentShoe,
   } = useContext(ReviewContext);
 
   const toggleNewest = () => {
     setNewestClicked(true);
     setHelpfulClicked(false);
     setRelevantClicked(false);
+    axios
+      .get(`/api/shoes/${currentShoe}/newest`)
+      .then((res) => {
+        setReviews(res.data);
+      })
+      .catch((err) => console.log(err));
   };
 
   const toggleHelpful = () => {
     setHelpfulClicked(true);
     setNewestClicked(false);
     setRelevantClicked(false);
+    axios
+      .get(`/api/shoes/${currentShoe}/helpful`)
+      .then((res) => {
+        setReviews(res.data);
+      })
+      .catch((err) => console.log(err));
   };
 
   const toggleRelevant = () => {
     setRelevantClicked(true);
     setNewestClicked(false);
     setHelpfulClicked(false);
+    axios
+      .get(`/api/shoes/${currentShoe}/relevant`)
+      .then((res) => {
+        setReviews(res.data);
+      })
+      .catch((err) => console.log(err));
   };
 
   return (
