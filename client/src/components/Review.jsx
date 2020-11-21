@@ -9,6 +9,7 @@ function Review(props) {
   const { currentShoe } = useContext(ReviewContext);
   const [helpfulYes, setHelpfulYes] = useState(props.helpfulYes);
   const [helpfulNo, setHelpfulNo] = useState(props.helpfulNo);
+  const [voteClicked, setVoteClicked] = useState(false);
   const reviewDate = new Date(props.date);
   const day = reviewDate.getDate();
   const year = reviewDate.getFullYear();
@@ -16,6 +17,7 @@ function Review(props) {
   const month = new Intl.DateTimeFormat('en-US', options).format(reviewDate);
 
   const addHelpful = (username) => {
+    setVoteClicked(true);
     axios
       .post(`api/shoes/${currentShoe}/${username}/helpful`)
       .then(() => {
@@ -25,6 +27,7 @@ function Review(props) {
   };
 
   const addNotHelpful = (username) => {
+    setVoteClicked(true);
     axios
       .post(`api/shoes/${currentShoe}/${username}/nothelpful`)
       .then(() => {
@@ -71,6 +74,13 @@ function Review(props) {
           <span className={styles.voteCount}>{`(${helpfulNo})`}</span>
         </div>
       </div>
+      {voteClicked ?
+        (
+          <div className={styles.voteConfirmation}>
+            <span>Thank you! You have successfully submitted feedback for this review</span>
+          </div>
+        )
+        : null}
     </div>
   );
 }

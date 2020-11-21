@@ -186,6 +186,42 @@ img {
   color: white;
 }
 
+.voteConfirmation {
+  font-family: 'AdihausDIN';
+  font-size: 14px;
+  font-weight: 400;
+  margin-top: 10px;
+  -webkit-animation: fade 5s;
+  animation: fade 5s;
+  -moz-animation: fade 5s;
+  -o-animation: fade 5s;
+  opacity: 0;
+}
+
+@-webkit-keyframes fade {
+  0% {opacity: 0.2} 
+  50% {opacity: 1}
+  100% {opacity: 0.0}
+}
+
+@-moz-keyframes fade {
+  0% {opacity: 0.2} 
+  50% {opacity: 1}
+  100% {opacity: 0.0}  
+}
+
+@keyframes fade {
+  0% {opacity: 0.2} 
+  50% {opacity: 1}
+  100%{opacity: 0.0}
+}
+
+@-o-keyframes fade {
+  0% {opacity: 0.2} 
+  50% {opacity: 1}
+  100%{opacity: 0.0}
+}
+
 .starCount {
   font-size: 11px;
   font-family: 'AdihausDIN';
