@@ -13,7 +13,7 @@ function Breakdown() {
     const starCounts = [];
     for (let i = 1; i < 6; i += 1) {
       axios
-        .get(`/api/shoes/${currentShoe}/${i}`)
+        .get(`/api/products/${currentShoe}/reviews/${i}`)
         .then((res) => {
           starCounts.push(res.data[0].reviews.length);
           setStarCount(starCounts);

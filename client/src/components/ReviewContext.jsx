@@ -8,7 +8,7 @@ export const ReviewProvider = ({ children }) => {
   const [allReviews, setAllReviews] = useState([]);
   const [reviews, setReviews] = useState([]);
   const [filteredReviews, setFilteredReviews] = useState({});
-  const [currentShoe, setCurrentShoe] = useState(0);
+  const [currentShoe, setCurrentShoe] = useState(21);
   const [reviewTotal, setReviewTotal] = useState(0);
   const [averageStars, setAverageStars] = useState(0);
   const [averageSize, setAverageSize] = useState(0);
@@ -23,7 +23,7 @@ export const ReviewProvider = ({ children }) => {
 
   useEffect(() => {
     axios.all([
-      axios.get(`/api/shoes/${currentShoe}/newest`),
+      axios.get(`/api/products/${currentShoe}/reviews`),
     ])
       .then(axios.spread((newest) => {
         const reviewsArr = newest.data[0].reviews;

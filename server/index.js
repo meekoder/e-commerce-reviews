@@ -6,7 +6,7 @@ const reviewRouter = require('./reviewRouter.js');
 mongoose.connect('mongodb://localhost:27017/reviews');
 const app = express();
 
-const port = 3000;
+const port = 3004;
 
 app.use(express.static(__dirname + '/../public'));
 app.use(parser.json());
