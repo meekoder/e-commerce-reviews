@@ -22,17 +22,6 @@ const getShoeReviews = (id, cb) => {
   });
 };
 
-const addReview = (review, cb) => {
-  Reviews.insertOne(review, (err, data) => {
-    if (err) {
-      console.log(err);
-      cb(err, null);
-    } else {
-      cb(null, data);
-    }
-  });
-};
-
 const getHelpful = (id, cb) => {
   Reviews.findOne(id, (err, data) => {
     if (err) {
@@ -82,10 +71,21 @@ const getStars = (id, starCount, cb) => {
   });
 };
 
+const incrementHelpful = (id, username, cb) => {
+  Reviews.addHelpful(id, username, (err, data) => {
+    if (err) {
+      console.log(err);
+      cb(err, null);
+    } else {
+      cb(null, data);
+    }
+  });
+};
+
 module.exports = {
+  incrementHelpful,
   getReviews,
   getShoeReviews,
-  addReview,
   getHelpful,
   getNewest,
   getRelevant,

@@ -129,12 +129,6 @@ img {
   font-family: 'AdihausDIN';
 }
 
-.starFilter,
-.vote {
-  text-decoration: underline;
-  cursor: pointer;
-}
-
 .filters {
   display: flex;
   justify-content: space-between;
@@ -168,13 +162,26 @@ img {
   margin: 0;
 }
 
-.starFilter {
-  font-size: 13px;
-  letter-spacing: 2px;
+.starFilter,
+.vote {
+  text-decoration: underline;
+  cursor: pointer;
   transition: color .1s, background-color .1s;
 }
 
+.starFilter {
+  font-size: 13px;
+  letter-spacing: 2px;
+}
+
 .starFilter:hover {
+  background-color: black;
+  color: white;
+  transition: color .1s cubic-bezier(.3,0,.45,1),background-color .1s cubic-bezier(.3,0,.45,1);
+}
+
+.vote:hover {
+  transition: color .1s cubic-bezier(.3,0,.45,1),background-color .1s cubic-bezier(.3,0,.45,1);
   background-color: black;
   color: white;
 }
@@ -204,12 +211,6 @@ img {
   position: relative;
   margin-top: 40px;
   padding-bottom: 40px;
-}
-
-.vote:hover {
-  transition: color .1s cubic-bezier(.3,0,.45,1),background-color .1s cubic-bezier(.3,0,.45,1);
-  background-color: black;
-  color: white;
 }
 
 .voteAlign {

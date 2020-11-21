@@ -15,13 +15,25 @@ const findOne = (id, cb) => {
   ShoeModel.find({ id }, cb);
 };
 
-const insertOne = (reviews, cb) => {
-  ShoeModel.create(reviews, cb);
+const addHelpful = (id, username, cb) => {
+  ShoeModel.update({ 'reviews.userName': username },
+    {
+      $inc: {
+        'reviews.$.helpfulYes': 1,
+      },
+    },
+    (err, model) => {
+      if (err) {
+        console.log(err);
+        cb(err, null);
+      }
+      cb(null, model);
+    });
 };
 
 module.exports = {
   ShoeModel,
-  insertOne,
+  addHelpful,
   findAll,
   findOne,
 };

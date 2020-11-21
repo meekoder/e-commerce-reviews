@@ -69,6 +69,17 @@ router.route('/shoes/:id/:stars')
     });
   });
 
+router.route('/shoes/:id/:username')
+  .post((req, res) => {
+    reviewCtrl.incrementHelpful(req.params.id, req.params.username, (err, data) => {
+      if (err) {
+        res.sendStatus(404);
+      } else {
+        res.status(200).json(data);
+      }
+    });
+  });
+
 router.route('/reviews')
   .post((req, res) => {
     reviewCtrl.addReview(req.body, (err, data) => {

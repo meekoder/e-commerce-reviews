@@ -1,13 +1,28 @@
-import React from 'react';
+import React, { useContext, useState } from 'react';
+import axios from 'axios';
+import PropTypes from 'prop-types';
+import ReviewContext from './ReviewContext';
 import styles from '../../../public/styles.css';
 import Stars from './Stars';
 
 function Review(props) {
+  const { currentShoe } = useContext(ReviewContext);
+  const [helpfulYes, setHelpfulYes] = useState(props.helpfulYes);
+  const [helpfulNo, setHelpfulNo] = useState(props.helpfulNo);
   const reviewDate = new Date(props.date);
   const day = reviewDate.getDate();
   const year = reviewDate.getFullYear();
   const options = { month: 'long' };
   const month = new Intl.DateTimeFormat('en-US', options).format(reviewDate);
+
+  const addHelpful = (username) => {
+    axios
+      .post(`api/shoes/${currentShoe}/${username}`)
+      .then(() => {
+        setHelpfulYes(helpfulYes + 1);
+      })
+      .catch((err) => console.log(err));
+  };
 
   return (
     <div className={styles.review}>
@@ -39,8 +54,8 @@ function Review(props) {
       <div className={styles.helpful}>
         <div>Was this review helpful?</div>
         <div className={styles.voteAlign}>
-          <p className={styles.vote}>Yes</p>
-          <span className={styles.voteCount}>{`(${props.helpfulYes})`}</span>
+          <p className={styles.vote} onClick={() => addHelpful(props.user)}>Yes</p>
+          <span className={styles.voteCount}>{`(${helpfulYes})`}</span>
         </div>
         <div className={styles.voteAlign}>
           <p className={styles.vote}>No</p>
@@ -52,3 +67,7 @@ function Review(props) {
 }
 
 export default Review;
+
+Review.propTypes = {
+  summary: PropTypes.string,
+}
