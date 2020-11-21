@@ -66,11 +66,13 @@ function Review(props) {
       <div className={styles.helpful}>
         <div>Was this review helpful?</div>
         <div className={styles.voteAlign}>
-          <p className={styles.vote} onClick={() => addHelpful(props.user)}>Yes</p>
+          <span>
+            <p className={styles.vote} onClick={!voteClicked ? () => addHelpful(props.user) : null}>Yes</p>
+          </span>
           <span className={styles.voteCount}>{`(${helpfulYes})`}</span>
         </div>
         <div className={styles.voteAlign}>
-          <p className={styles.vote} onClick={() => addNotHelpful(props.user)}>No</p>
+          <p className={styles.vote} onClick={!voteClicked ? () => addNotHelpful(props.user) : null}>No</p>
           <span className={styles.voteCount}>{`(${helpfulNo})`}</span>
         </div>
       </div>

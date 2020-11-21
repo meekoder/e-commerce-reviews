@@ -162,14 +162,28 @@ img {
   margin: 0;
 }
 
-.starFilter,
-.vote {
-  text-decoration: underline;
-  cursor: pointer;
-  transition: color .1s, background-color .1s;
+.showingReviews {
+  display: flex;
+  align-items: center;
+  font-family: 'AdihausDIN';
+  font-size: 16px;
+}
+
+#selectedFilter {
+  font-weight: 700;
+  margin: 0;
+}
+
+.noStarFilter {
+  font-family: 'AdihausDIN';
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 2px;
 }
 
 .starFilter {
+  cursor: pointer;
+  text-decoration: underline;
   font-size: 13px;
   letter-spacing: 2px;
 }
@@ -180,7 +194,23 @@ img {
   transition: color .1s cubic-bezier(.3,0,.45,1),background-color .1s cubic-bezier(.3,0,.45,1);
 }
 
+.vote {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
 .vote:hover {
+  cursor: pointer;
+  transition: color .1s cubic-bezier(.3,0,.45,1),background-color .1s cubic-bezier(.3,0,.45,1);
+  background-color: black;
+  color: white;
+}
+
+#disabledVote {
+  pointer-events: none;
+}
+
+#disabledVote:hover {
   transition: color .1s cubic-bezier(.3,0,.45,1),background-color .1s cubic-bezier(.3,0,.45,1);
   background-color: black;
   color: white;

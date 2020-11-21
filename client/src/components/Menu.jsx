@@ -13,49 +13,32 @@ function Menu() {
     setRelevantClicked,
     setReviews,
     setAllReviews,
-    currentShoe,
+    allReviews,
   } = useContext(ReviewContext);
 
   const toggleNewest = () => {
     setNewestClicked(true);
     setHelpfulClicked(false);
     setRelevantClicked(false);
-    axios
-      .get(`/api/shoes/${currentShoe}/newest`)
-      .then((res) => {
-        const reviews = res.data[0].reviews
-        setReviews(reviews.slice(0, 2));
-        setAllReviews(reviews);
-      })
-      .catch((err) => console.log(err));
+    allReviews.sort((a, b) => new Date(b.reviewDate) - new Date(a.reviewDate));
+    setReviews(allReviews.slice(0, 2));
   };
 
   const toggleHelpful = () => {
     setHelpfulClicked(true);
     setNewestClicked(false);
     setRelevantClicked(false);
-    axios
-      .get(`/api/shoes/${currentShoe}/helpful`)
-      .then((res) => {
-        const reviews = res.data[0].reviews
-        setReviews(reviews.slice(0, 2));
-        setAllReviews(reviews);
-      })
-      .catch((err) => console.log(err));
+    const filteredHelpful = allReviews.filter((r) => r.helpfulYes > 0).sort((a, b) => b.helpfulYes - a.helpfulYes);
+    setAllReviews(filteredHelpful);
+    setReviews(filteredHelpful.slice(0, 2));
   };
 
   const toggleRelevant = () => {
     setRelevantClicked(true);
     setNewestClicked(false);
     setHelpfulClicked(false);
-    axios
-      .get(`/api/shoes/${currentShoe}/relevant`)
-      .then((res) => {
-        const reviews = res.data[0].reviews
-        setReviews(reviews.slice(0, 2));
-        setAllReviews(reviews);
-      })
-      .catch((err) => console.log(err));
+    const filteredRelevant = allReviews.filter((r) => r.verified > 0);
+    setReviews(filteredRelevant.slice(0, 2));
   };
 
   return (

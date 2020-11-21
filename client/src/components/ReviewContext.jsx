@@ -7,7 +7,8 @@ const ReviewContext = createContext();
 export const ReviewProvider = ({ children }) => {
   const [allReviews, setAllReviews] = useState([]);
   const [reviews, setReviews] = useState([]);
-  const [currentShoe, setCurrentShoe] = useState(1);
+  const [filteredReviews, setFilteredReviews] = useState({});
+  const [currentShoe, setCurrentShoe] = useState(0);
   const [reviewTotal, setReviewTotal] = useState(0);
   const [averageStars, setAverageStars] = useState(0);
   const [averageSize, setAverageSize] = useState(0);
@@ -18,12 +19,14 @@ export const ReviewProvider = ({ children }) => {
   const [newestClicked, setNewestClicked] = useState(true);
   const [helpfulClicked, setHelpfulClicked] = useState(false);
   const [relevantClicked, setRelevantClicked] = useState(false);
+  const [avgStars, setAvgStars] = useState([0, 0, 0, 0, 0]);
 
   useEffect(() => {
-    axios
-      .get(`/api/shoes/${currentShoe}/newest`)
-      .then((response) => {
-        const reviewsArr = response.data[0].reviews;
+    axios.all([
+      axios.get(`/api/shoes/${currentShoe}/newest`),
+    ])
+      .then(axios.spread((newest) => {
+        const reviewsArr = newest.data[0].reviews;
         const starTotal = reviewsArr.reduce((a, b) => a + b.stars, 0);
         const sizeTotal = reviewsArr.reduce((a, b) => a + b.size, 0);
         const widthTotal = reviewsArr.reduce((a, b) => a + b.width, 0);
@@ -39,16 +42,20 @@ export const ReviewProvider = ({ children }) => {
         setAverageComfort(comfortTotal / reviewsArr.length);
         setAverageQuality(qualityTotal / reviewsArr.length);
         setAverageRecommended(recommendedTotal / reviewsArr.length);
-      })
+      }))
       .catch((err) => console.log(err));
   }, []);
 
   return (
     <ReviewContext.Provider value={{
+      avgStars,
+      setAvgStars,
       allReviews,
       setAllReviews,
       setReviews,
       reviews,
+      filteredReviews,
+      setFilteredReviews,
       currentShoe,
       reviewTotal,
       averageStars,
