@@ -71,8 +71,19 @@ const getStars = (id, starCount, cb) => {
   });
 };
 
-const incrementHelpful = (id, username, cb) => {
-  Reviews.addHelpful(id, username, (err, data) => {
+const postHelpful = (id, username, cb) => {
+  Reviews.updateHelpful(id, username, (err, data) => {
+    if (err) {
+      console.log(err);
+      cb(err, null);
+    } else {
+      cb(null, data);
+    }
+  });
+};
+
+const postNotHelpful = (id, username, cb) => {
+  Reviews.updateNotHelpful(id, username, (err, data) => {
     if (err) {
       console.log(err);
       cb(err, null);
@@ -83,7 +94,8 @@ const incrementHelpful = (id, username, cb) => {
 };
 
 module.exports = {
-  incrementHelpful,
+  postHelpful,
+  postNotHelpful,
   getReviews,
   getShoeReviews,
   getHelpful,

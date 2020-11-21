@@ -17,9 +17,18 @@ function Review(props) {
 
   const addHelpful = (username) => {
     axios
-      .post(`api/shoes/${currentShoe}/${username}`)
+      .post(`api/shoes/${currentShoe}/${username}/helpful`)
       .then(() => {
         setHelpfulYes(helpfulYes + 1);
+      })
+      .catch((err) => console.log(err));
+  };
+
+  const addNotHelpful = (username) => {
+    axios
+      .post(`api/shoes/${currentShoe}/${username}/nothelpful`)
+      .then(() => {
+        setHelpfulNo(helpfulNo + 1);
       })
       .catch((err) => console.log(err));
   };
@@ -58,8 +67,8 @@ function Review(props) {
           <span className={styles.voteCount}>{`(${helpfulYes})`}</span>
         </div>
         <div className={styles.voteAlign}>
-          <p className={styles.vote}>No</p>
-          <span className={styles.voteCount}>{`(${props.helpfulNo})`}</span>
+          <p className={styles.vote} onClick={() => addNotHelpful(props.user)}>No</p>
+          <span className={styles.voteCount}>{`(${helpfulNo})`}</span>
         </div>
       </div>
     </div>

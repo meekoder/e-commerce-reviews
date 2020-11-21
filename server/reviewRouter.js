@@ -69,9 +69,9 @@ router.route('/shoes/:id/:stars')
     });
   });
 
-router.route('/shoes/:id/:username')
+router.route('/shoes/:id/:username/helpful')
   .post((req, res) => {
-    reviewCtrl.incrementHelpful(req.params.id, req.params.username, (err, data) => {
+    reviewCtrl.postHelpful(req.params.id, req.params.username, (err, data) => {
       if (err) {
         res.sendStatus(404);
       } else {
@@ -80,9 +80,9 @@ router.route('/shoes/:id/:username')
     });
   });
 
-router.route('/reviews')
+router.route('/shoes/:id/:username/nothelpful')
   .post((req, res) => {
-    reviewCtrl.addReview(req.body, (err, data) => {
+    reviewCtrl.postNotHelpful(req.params.id, req.params.username, (err, data) => {
       if (err) {
         res.sendStatus(404);
       } else {

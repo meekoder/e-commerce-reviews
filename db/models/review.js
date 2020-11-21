@@ -15,7 +15,7 @@ const findOne = (id, cb) => {
   ShoeModel.find({ id }, cb);
 };
 
-const addHelpful = (id, username, cb) => {
+const updateHelpful = (id, username, cb) => {
   ShoeModel.update({ 'reviews.userName': username },
     {
       $inc: {
@@ -31,9 +31,26 @@ const addHelpful = (id, username, cb) => {
     });
 };
 
+const updateNotHelpful = (id, username, cb) => {
+  ShoeModel.update({ 'reviews.userName': username },
+    {
+      $inc: {
+        'reviews.$.helpfulNo': 1,
+      },
+    },
+    (err, model) => {
+      if (err) {
+        console.log(err);
+        cb(err, null);
+      }
+      cb(null, model);
+    });
+};
+
 module.exports = {
   ShoeModel,
-  addHelpful,
+  updateHelpful,
+  updateNotHelpful,
   findAll,
   findOne,
 };
