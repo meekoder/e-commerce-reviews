@@ -15,6 +15,10 @@ const findOne = (id, cb) => {
   ShoeModel.find({ id }, cb);
 };
 
+const insertOne = (reviews, cb) => {
+  ShoeModel.create(reviews, cb);
+};
+
 const updateHelpful = (id, username, cb) => {
   ShoeModel.update({ 'reviews.userName': username },
     {
@@ -49,6 +53,7 @@ const updateNotHelpful = (id, username, cb) => {
 
 module.exports = {
   ShoeModel,
+  insertOne,
   updateHelpful,
   updateNotHelpful,
   findAll,

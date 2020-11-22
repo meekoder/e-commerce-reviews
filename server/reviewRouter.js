@@ -1,11 +1,16 @@
 const express = require('express');
+const path = require('path');
 const reviewCtrl = require('../db/controllers/review.js');
 
 const router = express.Router();
 
-router.route('/products/:id')
+router.route('/:id').get(async (req, res) => {
+  res.sendFile(path.join(__dirname, '../public/index.html'));
+});
+
+router.route('/:id')
   .get((req, res) => {
-    reviewCtrl.getShoeReviews(req.params.id, (err, data) => {
+    reviewCtrl.getShoeReviews(req.params.id, async (err, data) => {
       if (err) {
         res.sendStatus(404);
       } else {
@@ -14,7 +19,7 @@ router.route('/products/:id')
     });
   });
 
-router.route('/products/:id/reviews')
+router.route('/:id/reviews')
   .get((req, res) => {
     reviewCtrl.getNewest(req.params.id, (err, data) => {
       if (err) {
@@ -25,7 +30,7 @@ router.route('/products/:id/reviews')
     });
   });
 
-router.route('/products/:id/reviews/:stars')
+router.route('/:id/reviews/:stars')
   .get((req, res) => {
     reviewCtrl.getStars(req.params.id, req.params.stars, (err, data) => {
       if (err) {
@@ -36,7 +41,7 @@ router.route('/products/:id/reviews/:stars')
     });
   });
 
-router.route('/products/:id/:username/helpful')
+router.route('/:id/:username/helpful')
   .post((req, res) => {
     reviewCtrl.postHelpful(req.params.id, req.params.username, (err, data) => {
       if (err) {
@@ -47,7 +52,7 @@ router.route('/products/:id/:username/helpful')
     });
   });
 
-router.route('/products/:id/:username/nothelpful')
+router.route('/:id/:username/nothelpful')
   .post((req, res) => {
     reviewCtrl.postNotHelpful(req.params.id, req.params.username, (err, data) => {
       if (err) {

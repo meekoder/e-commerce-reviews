@@ -9,6 +9,6 @@ const port = 3004;
 
 app.use(express.static(__dirname + '/../public'));
 app.use(parser.json());
-app.use('/api', reviewRouter);
+app.use('/api/products', reviewRouter);
 
 app.listen(port, () => console.log(`Listening on port ${port}`));

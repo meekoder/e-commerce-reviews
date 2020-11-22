@@ -19,7 +19,7 @@ function Review(props) {
   const addHelpful = (username) => {
     setVoteClicked(true);
     axios
-      .post(`api/shoes/${currentShoe}/${username}/helpful`)
+      .post(`api/products/${currentShoe}/${username}/helpful`)
       .then(() => {
         setHelpfulYes(helpfulYes + 1);
       })
@@ -29,7 +29,7 @@ function Review(props) {
   const addNotHelpful = (username) => {
     setVoteClicked(true);
     axios
-      .post(`api/shoes/${currentShoe}/${username}/nothelpful`)
+      .post(`api/products/${currentShoe}/${username}/nothelpful`)
       .then(() => {
         setHelpfulNo(helpfulNo + 1);
       })
