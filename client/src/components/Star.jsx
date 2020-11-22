@@ -63,5 +63,5 @@ Star.defaultProps = {
 };
 
 Star.propTypes = {
-  fill: PropTypes.number,
+  fill: PropTypes.string,
 };

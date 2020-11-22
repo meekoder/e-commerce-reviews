@@ -26,9 +26,6 @@ progress[value]::-webkit-progress-value {
 }
 
 .container {
-  /* opacity: 1; */
-  /* transform: none; */
-  /* transition: transform 1s cubic-bezier(.2,.8,.4,1),opacity 1s cubic-bezier(.2,.8,.4,1); */
   width: 100%;
   max-width: 970px;
   margin-bottom: 74px;

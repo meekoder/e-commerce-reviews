@@ -5,12 +5,12 @@ import ReviewContext from './ReviewContext';
 import styles from '../../../public/styles.css';
 import Stars from './Stars';
 
-function Review(props) {
+function Review({ stars, summary, fullReview, recommended, image, helpfulYes, helpfulNo, date, user, verified }) {
   const { currentShoe } = useContext(ReviewContext);
-  const [helpfulYes, setHelpfulYes] = useState(props.helpfulYes);
-  const [helpfulNo, setHelpfulNo] = useState(props.helpfulNo);
+  const [helpfulY, setHelpfulYes] = useState(helpfulYes);
+  const [helpfulN, setHelpfulNo] = useState(helpfulNo);
   const [voteClicked, setVoteClicked] = useState(false);
-  const reviewDate = new Date(props.date);
+  const reviewDate = new Date(date);
   const day = reviewDate.getDate();
   const year = reviewDate.getFullYear();
   const options = { month: 'long' };
@@ -19,9 +19,9 @@ function Review(props) {
   const addHelpful = (username) => {
     setVoteClicked(true);
     axios
-      .post(`api/products/${currentShoe}/${username}/helpful`)
+      .post(`/api/products/${currentShoe}/${username}/helpful`)
       .then(() => {
-        setHelpfulYes(helpfulYes + 1);
+        setHelpfulYes(helpfulY + 1);
       })
       .catch((err) => console.log(err));
   };
@@ -29,9 +29,9 @@ function Review(props) {
   const addNotHelpful = (username) => {
     setVoteClicked(true);
     axios
-      .post(`api/products/${currentShoe}/${username}/nothelpful`)
+      .post(`/api/products/${currentShoe}/${username}/nothelpful`)
       .then(() => {
-        setHelpfulNo(helpfulNo + 1);
+        setHelpfulNo(helpfulN + 1);
       })
       .catch((err) => console.log(err));
   };
@@ -39,12 +39,12 @@ function Review(props) {
   return (
     <div className={styles.review}>
       <div className={styles.stars}>
-        <Stars fill={props.stars} />
+        <Stars fill={stars} />
         <p className={styles.date}>{`${month} ${day}, ${year}`}</p>
       </div>
-      <h5 className={styles.summary}>{props.summary}</h5>
-      <p className={styles.reviewText}>{props.fullReview}</p>
-      {props.recommended === 1 &&
+      <h5 className={styles.summary}>{summary}</h5>
+      <p className={styles.reviewText}>{fullReview}</p>
+      {recommended === 1 &&
           (
             <div>
               <p className={styles.recommended}>
@@ -58,22 +58,22 @@ function Review(props) {
               </p>
             </div>
           )}
-      {props.image && <img src={props.image}/>}
+      {image && <img src={image}/>}
       <div className={styles.verifiedUser}>
-        <p className={styles.user}>{props.user}</p>
-        {props.verified === 1 && <span className={styles.verified}>- Verified Purchaser</span>}
+        <p className={styles.user}>{user}</p>
+        {verified === 1 && <span className={styles.verified}>- Verified Purchaser</span>}
       </div>
       <div className={styles.helpful}>
         <div>Was this review helpful?</div>
         <div className={styles.voteAlign}>
           <span>
-            <p className={styles.vote} onClick={!voteClicked ? () => addHelpful(props.user) : null}>Yes</p>
+            <p className={styles.vote} onClick={!voteClicked ? () => addHelpful(user) : null}>Yes</p>
           </span>
-          <span className={styles.voteCount}>{`(${helpfulYes})`}</span>
+          <span className={styles.voteCount}>{`(${helpfulY})`}</span>
         </div>
         <div className={styles.voteAlign}>
-          <p className={styles.vote} onClick={!voteClicked ? () => addNotHelpful(props.user) : null}>No</p>
-          <span className={styles.voteCount}>{`(${helpfulNo})`}</span>
+          <p className={styles.vote} onClick={!voteClicked ? () => addNotHelpful(user) : null}>No</p>
+          <span className={styles.voteCount}>{`(${helpfulN})`}</span>
         </div>
       </div>
       {voteClicked ?
@@ -89,6 +89,19 @@ function Review(props) {
 
 export default Review;
 
+Review.defaultProps = {
+  image: null,
+};
+
 Review.propTypes = {
-  summary: PropTypes.string,
-}
+  stars: PropTypes.number.isRequired,
+  summary: PropTypes.string.isRequired,
+  fullReview: PropTypes.string.isRequired,
+  recommended: PropTypes.number.isRequired,
+  image: PropTypes.string,
+  helpfulYes: PropTypes.number.isRequired,
+  helpfulNo: PropTypes.number.isRequired,
+  date: PropTypes.string.isRequired,
+  user: PropTypes.string.isRequired,
+  verified: PropTypes.number.isRequired,
+};

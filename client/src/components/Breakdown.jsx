@@ -4,7 +4,17 @@ import ReviewContext from './ReviewContext';
 import styles from '../../../public/styles.css';
 
 function Breakdown() {
-  const { allReviews, setAllReviews, reviews, setReviews, currentShoe, setAvgStars, avgStars, setFilteredReviews, filteredReviews } = useContext(ReviewContext);
+  const {
+    allReviews,
+    setAllReviews,
+    reviews,
+    setReviews,
+    currentShoe,
+    setAvgStars,
+    avgStars,
+    setFilteredReviews,
+    filteredReviews
+  } = useContext(ReviewContext);
   const [doneLoading, setDoneLoading] = useState(false);
   const [starCount, setStarCount] = useState([]);
   const [filtersClicked, setFiltersClicked] = useState([]);
