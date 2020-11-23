@@ -2,7 +2,9 @@ const faker = require('faker');
 const mongoose = require('mongoose');
 const Reviews = require('./db/models/review.js');
 
-mongoose.connect('mongodb://localhost:27017/reviews');
+mongoose.connect('mongodb://database/reviews',
+  { useNewUrlParser: true, useUnifiedTopology: true })
+  .then(() => console.log('Connected to reviews DB'));
 
 const getRandomNum = (min, max) => Math.floor(Math.random() * (max - min)) + min;
 
@@ -45,20 +47,21 @@ const generateReviews = (i) => {
   return shoeReview;
 };
 
-const seedDb = (data) => {
-  Reviews.insertOne(data, (err, reviews) => {
-    if (err) {
-      console.log(err);
-      return;
-    }
-    console.log(reviews);
-  });
+const seedDb = async (data) => {
+  try {
+    await Reviews.insertOne(data);
+  } catch (exception) {
+    console.log(exception);
+  }
 };
 
-const generateShoes = () => {
+const generateShoes = async () => {
+  const reviews = [];
   for (let i = 0; i < 100; i += 1) {
-    seedDb(generateReviews(i));
+    reviews.push(generateReviews(i));
   }
+  await seedDb(reviews);
+  mongoose.disconnect();
 };
 
 generateShoes();

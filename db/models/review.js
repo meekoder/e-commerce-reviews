@@ -15,9 +15,7 @@ const findOne = (id, cb) => {
   ShoeModel.find({ id }, cb);
 };
 
-const insertOne = (reviews, cb) => {
-  ShoeModel.create(reviews, cb);
-};
+const insertOne = async (reviews) => ShoeModel.create(reviews);
 
 const updateHelpful = (id, username, cb) => {
   ShoeModel.update({ 'reviews.userName': username },
