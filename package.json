@@ -14,7 +14,8 @@
     "lint": "./node_modules/.bin/eslint",
     "test-be": "./node_modules/.bin/jest --config ./test/backend/jest.config.js --watch",
     "test-fe": "./node_modules/.bin/jest --config ./test/frontend/jest.config.js --watch",
-    "test": "./node_modules/.bin/jest --config ./test/jest.all.config.js --watch"
+    "test": "./node_modules/.bin/jest --config ./test/jest.all.config.js --watch",
+    "docker": "node ./seed.js && node ./server/index.js"
   },
   "dependencies": {
     "axios": "^0.21.0",
@@ -23,7 +24,6 @@
     "faker": "^5.1.0",
     "identity-obj-proxy": "^3.0.0",
     "jest-css-modules-transform": "^4.0.2",
-    "mongodb": "^3.6.3",
     "mongoose": "^5.10.13",
     "path": "^0.12.7",
     "prop-types": "^15.7.2",
