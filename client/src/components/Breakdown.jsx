@@ -13,7 +13,7 @@ function Breakdown() {
     setAvgStars,
     avgStars,
     setFilteredReviews,
-    filteredReviews
+    filteredReviews,
   } = useContext(ReviewContext);
   const [doneLoading, setDoneLoading] = useState(false);
   const [starCount, setStarCount] = useState([]);
