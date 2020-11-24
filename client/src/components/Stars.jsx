@@ -1,11 +1,11 @@
 import React, { useContext } from 'react';
-import styles from '../../../public/styles.css';
+import styles from '../../styles.css';
 import ReviewContext from './ReviewContext';
 import Star from './Star';
 
 function Stars({ fill }) {
   const { averageStars } = useContext(ReviewContext);
-  const avg = fill ? fill : averageStars;
+  const avg = fill || averageStars;
   return (
     <span className={styles.starContainer}>
       <div className={styles.stars}>

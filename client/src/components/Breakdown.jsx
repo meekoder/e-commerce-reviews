@@ -1,7 +1,7 @@
 import React, { useContext, useState, useEffect } from 'react';
 import axios from 'axios';
 import ReviewContext from './ReviewContext';
-import styles from '../../../public/styles.css';
+import styles from '../../styles.css';
 
 function Breakdown() {
   const {

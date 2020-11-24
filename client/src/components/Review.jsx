@@ -2,7 +2,7 @@ import React, { useContext, useState } from 'react';
 import axios from 'axios';
 import PropTypes from 'prop-types';
 import ReviewContext from './ReviewContext';
-import styles from '../../../public/styles.css';
+import styles from '../../styles.css';
 import Stars from './Stars';
 
 function Review({ stars, summary, fullReview, recommended, image, helpfulYes, helpfulNo, date, user, verified }) {
@@ -44,8 +44,8 @@ function Review({ stars, summary, fullReview, recommended, image, helpfulYes, he
       </div>
       <h5 className={styles.summary}>{summary}</h5>
       <p className={styles.reviewText}>{fullReview}</p>
-      {recommended === 1 &&
-          (
+      {recommended === 1
+          && (
             <div>
               <p className={styles.recommended}>
                 <span>
@@ -58,7 +58,7 @@ function Review({ stars, summary, fullReview, recommended, image, helpfulYes, he
               </p>
             </div>
           )}
-      {image && <img src={image}/>}
+      {image && <img src={image} alt="review" />}
       <div className={styles.verifiedUser}>
         <p className={styles.user}>{user}</p>
         {verified === 1 && <span className={styles.verified}>- Verified Purchaser</span>}

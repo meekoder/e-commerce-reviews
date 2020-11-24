@@ -1,6 +1,6 @@
 import React from 'react';
 import WhiteArrow from './WhiteArrow';
-import styles from '../../../../public/styles.css';
+import styles from '../../../styles.css';
 
 function WriteReview() {
   return (

@@ -1,7 +1,6 @@
 import React, { useContext } from 'react';
-import axios from 'axios';
 import ReviewContext from './ReviewContext';
-import styles from '../../../public/styles.css';
+import styles from '../../styles.css';
 
 function Menu() {
   const {

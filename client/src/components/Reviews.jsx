@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import Review from './Review';
 import ReviewContext from './ReviewContext';
-import styles from '../../../public/styles.css';
+import styles from '../../styles.css';
 
 function Reviews() {
   const { reviews } = useContext(ReviewContext);

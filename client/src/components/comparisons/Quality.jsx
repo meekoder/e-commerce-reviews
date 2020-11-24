@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import styled from 'styled-components';
 import ReviewContext from '../ReviewContext';
-import styles from '../../../../public/styles.css';
+import styles from '../../../styles.css';
 
 const Bar = styled.div`
   height: 4px;

@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import ReviewContext from '../ReviewContext';
 import BlackArrow from './BlackArrow';
-import styles from '../../../../public/styles.css';
+import styles from '../../../styles.css';
 
 function LoadMore() {
   const { allReviews, reviews, setReviews } = useContext(ReviewContext);

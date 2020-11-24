@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import styles from '../../../public/styles.css';
+import styles from '../../styles.css';
 import ReviewContext from './ReviewContext';
 
 function Opinions() {

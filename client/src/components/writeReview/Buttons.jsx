@@ -1,7 +1,7 @@
 import React from 'react';
 import WriteReview from './WriteReview';
 import LoadMore from './LoadMore';
-import styles from '../../../../public/styles.css';
+import styles from '../../../styles.css';
 
 function Buttons() {
   return (

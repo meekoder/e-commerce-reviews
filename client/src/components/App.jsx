@@ -1,6 +1,6 @@
 import React from 'react';
 import { ReviewProvider } from './ReviewContext';
-import styles from '../../../public/styles.css';
+import styles from '../../styles.css';
 import Reviews from './Reviews';
 import Total from './Total';
 import Breakdown from './Breakdown';
