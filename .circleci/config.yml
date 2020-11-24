@@ -49,7 +49,6 @@ jobs:
             ssh -o StrictHostKeyChecking=no ubuntu@ec2-184-169-207-158.us-west-1.compute.amazonaws.com bash -c '\
             docker-compose pull
             docker-compose up -d'
-            ENDSSH
 workflows:
   version: 2
   build-master:
