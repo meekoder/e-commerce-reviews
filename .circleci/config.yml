@@ -46,9 +46,9 @@ jobs:
       - run:
           name: Deploy over SSH
           command: |
-            ssh -o StrictHostKeyChecking=no ubuntu@ec2-184-169-207-158.us-west-1.compute.amazonaws.com
-            docker-compose pull
-            docker-compose up -d
+            ssh -o StrictHostKeyChecking=no ubuntu@ec2-184-169-207-158.us-west-1.compute.amazonaws.com \
+            docker-compose pull \
+            docker-compose up -d \
             ENDSSH
 workflows:
   version: 2
