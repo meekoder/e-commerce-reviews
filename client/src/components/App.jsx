@@ -13,7 +13,7 @@ function App() {
   return (
     <ReviewProvider>
       <div className={styles.container}>
-        <h5>RATINGS & REVIEWS</h5>
+        <h5 className={styles.reviewHeader}>RATINGS & REVIEWS</h5>
         <div className={styles.main}>
           <div className={styles.ratings}>
             <Total />

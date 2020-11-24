@@ -34,7 +34,7 @@ progress[value]::-webkit-progress-value {
   padding-top: 6px;
 }
 
-h5 {
+.reviewHeader {
   font-size: 30px;
   line-height: 28px;
   font-weight: 600px;
@@ -61,7 +61,7 @@ h6 {
   height: 76.5px;
 }
 
-img {
+.reviewImg {
   width: 85px;
   height: 85px;
   margin-top: 20px;
