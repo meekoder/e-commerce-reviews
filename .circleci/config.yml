@@ -68,8 +68,8 @@ workflows:
       #     branches:
       #       only: master
       - deploy:
-          requires:
-            - publish-latest
+        #requires:
+        #   - publish-latest
           filters:
             branches:
               only: master
