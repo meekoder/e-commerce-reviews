@@ -48,7 +48,6 @@ jobs:
           command: |
             ssh -o StrictHostKeyChecking=no ubuntu@ec2-184-169-207-158.us-west-1.compute.amazonaws.com \
             ls && \
-            cd /FEC && \
             docker-compose pull && \
             docker-compose up -d && \
             ENDSSH
