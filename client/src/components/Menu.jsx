@@ -41,15 +41,15 @@ function Menu() {
   };
 
   return (
-    <ul className={styles.menu}>
-      <li className={newestClicked && styles.activeMenu}>
-        <button type="button" onClick={toggleNewest} className={newestClicked && styles.activeBtn}>NEWEST</button>
+    <ul className={styles.menuBorder}>
+      <li id={styles.menu} className={newestClicked && styles.activeMenu}>
+        <button type="button" onClick={toggleNewest} id={styles.menuBtn} className={newestClicked && styles.activeBtn}>NEWEST</button>
       </li>
-      <li className={helpfulClicked && styles.activeMenu}>
-        <button type="button" onClick={toggleHelpful} className={helpfulClicked && styles.activeBtn}>HELPFUL</button>
+      <li id={styles.menuBorder} className={helpfulClicked && styles.activeMenu}>
+        <button type="button" onClick={toggleHelpful} id={styles.menuBtn} className={helpfulClicked && styles.activeBtn}>HELPFUL</button>
       </li>
-      <li className={relevantClicked && styles.activeMenu}>
-        <button type="button" onClick={toggleRelevant} className={relevantClicked && styles.activeBtn}>RELEVANT</button>
+      <li id={styles.menuBorder} className={relevantClicked && styles.activeMenu}>
+        <button type="button" onClick={toggleRelevant} id={styles.menuBtn} className={relevantClicked && styles.activeBtn}>RELEVANT</button>
       </li>
     </ul>
   );
