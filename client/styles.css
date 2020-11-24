@@ -138,6 +138,7 @@ h6 {
 }
 
 .summary {
+  font-family: 'adineue pro bold web';
   margin-top: 20px;
   font-weight: 600;
   font-size: 20px;
@@ -179,6 +180,7 @@ h6 {
   text-decoration: underline;
   font-size: 13px;
   letter-spacing: 2px;
+  font-weight: 700;
 }
 
 .starFilter:hover {
@@ -448,7 +450,7 @@ h6 {
   box-shadow: inset 0 -2px 0 #000;
 }
 
-#menuBtn {
+.menuBtn {
   color: #767677;
   font-family: 'AdihausDIN';
   font-size: 14px;
@@ -461,11 +463,11 @@ h6 {
   transition: color .1s cubic-bezier(.3,0,.45,1);
 }
 
-#menuBtn:hover {
+.menuBtn:hover {
   color: #000;
 }
 
-.activeBtn {
+#activeBtn {
   font-weight: 700;
   color: #000;
 }

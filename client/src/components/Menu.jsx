@@ -43,13 +43,13 @@ function Menu() {
   return (
     <ul className={styles.menu}>
       <li id={styles.menuBorder} className={newestClicked && styles.activeMenu}>
-        <button type="button" onClick={toggleNewest} id={styles.menuBtn} className={newestClicked && styles.activeBtn}>NEWEST</button>
+        <button type="button" onClick={toggleNewest} className={styles.menuBtn} id={newestClicked && styles.activeBtn}>NEWEST</button>
       </li>
       <li id={styles.menuBorder} className={helpfulClicked && styles.activeMenu}>
-        <button type="button" onClick={toggleHelpful} id={styles.menuBtn} className={helpfulClicked && styles.activeBtn}>HELPFUL</button>
+        <button type="button" onClick={toggleHelpful} className={styles.menuBtn} id={helpfulClicked && styles.activeBtn}>HELPFUL</button>
       </li>
       <li id={styles.menuBorder} className={relevantClicked && styles.activeMenu}>
-        <button type="button" onClick={toggleRelevant} id={styles.menuBtn} className={relevantClicked && styles.activeBtn}>RELEVANT</button>
+        <button type="button" onClick={toggleRelevant} className={styles.menuBtn} id={relevantClicked && styles.activeBtn}>RELEVANT</button>
       </li>
     </ul>
   );
