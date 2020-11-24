@@ -41,7 +41,7 @@ function Menu() {
   };
 
   return (
-    <ul className={styles.menuBorder}>
+    <ul className={styles.menu}>
       <li id={styles.menu} className={newestClicked && styles.activeMenu}>
         <button type="button" onClick={toggleNewest} id={styles.menuBtn} className={newestClicked && styles.activeBtn}>NEWEST</button>
       </li>
