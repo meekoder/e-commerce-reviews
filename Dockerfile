@@ -1,5 +1,5 @@
 # What image do you want to start building on?
-FROM node:12
+FROM node:12-alpine
 
 # Make a folder in your image where your app's source code can live
 #RUN mkdir -p /src/app
@@ -20,4 +20,4 @@ COPY . .
 EXPOSE 3004
 
 # How do you start your app?
-CMD [ "npm", "run", "docker" ]
+CMD npm run react-dev && npm run docker

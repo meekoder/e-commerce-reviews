@@ -4,7 +4,7 @@ const BUILD_DIR = path.resolve(__dirname, 'public'); // where we will place our 
 const APP_DIR = path.resolve(__dirname, 'client'); // where the pre-transpiled components live
 
 module.exports = {
-  mode: 'development',
+  mode: 'production',
   resolve: { extensions: ['.js', '.jsx', '.json', '.css'] },
   entry: APP_DIR + '/src/index.jsx', // need to reference the point where we call reactdom.render
   output: {
@@ -44,5 +44,5 @@ module.exports = {
       },
     ],
   },
-  watch: true,
+  watch: false,
 };
