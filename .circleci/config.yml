@@ -37,6 +37,8 @@ jobs:
             echo "$DOCKERHUB_PASS" | docker login -u "$DOCKERHUB_USERNAME" --password-stdin
             docker push $IMAGE_NAME:latest
   deploy:
+    machine:
+      enabled: true
     steps:
       - add_ssh_keys:
           fingerprints:
