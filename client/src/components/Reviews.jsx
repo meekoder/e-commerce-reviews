@@ -4,11 +4,18 @@ import ReviewContext from './ReviewContext';
 import styles from '../../styles.css';
 
 function Reviews() {
-  const { reviews } = useContext(ReviewContext);
+  const { reviews, setReviews, selectedFilters } = useContext(ReviewContext);
+
+  const filtered = reviews.filter((review) => {
+    if (selectedFilters.length) {
+      return selectedFilters.includes(review.stars);
+    }
+    return true;
+  });
 
   return (
     <div className={styles.reviewList}>
-      {reviews ? reviews.map((review) => (
+      {filtered ? filtered.map((review) => (
         <Review
           key={review.userName}
           stars={review.stars}

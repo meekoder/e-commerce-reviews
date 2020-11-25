@@ -9,6 +9,7 @@ export const ReviewProvider = ({ children }) => {
   const [allReviews, setAllReviews] = useState([]);
   const [reviews, setReviews] = useState([]);
   const [filteredReviews, setFilteredReviews] = useState({});
+  const [selectedFilters, setSelectedFilters] = useState([]);
   const [currentShoe, setCurrentShoe] = useState(0);
   const [reviewTotal, setReviewTotal] = useState(0);
   const [averageStars, setAverageStars] = useState(0);
@@ -57,6 +58,8 @@ export const ReviewProvider = ({ children }) => {
       setAllReviews,
       setReviews,
       reviews,
+      selectedFilters,
+      setSelectedFilters,
       filteredReviews,
       setFilteredReviews,
       currentShoe,

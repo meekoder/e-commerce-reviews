@@ -62,6 +62,7 @@ h6 {
   width: 85px;
   height: 85px;
   margin-top: 20px;
+  object-fit: cover;
 }
 
 .helpful {

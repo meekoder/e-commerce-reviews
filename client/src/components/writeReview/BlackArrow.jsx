@@ -6,7 +6,7 @@ function BlackArrow() {
       viewBox="-7 0 24 24"
       width="2.5rem"
       height="1.5rem"
-      style="overflow: visible"
+      style={{overflow: "visible"}}
     >
       <path
         d="M17.59 7l5 5-5 5M0 12h22"
