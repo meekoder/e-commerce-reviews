@@ -9,7 +9,7 @@ export const ReviewProvider = ({ children }) => {
   const [allReviews, setAllReviews] = useState([]);
   const [reviews, setReviews] = useState([]);
   const [filteredReviews, setFilteredReviews] = useState({});
-  const [currentShoe, setCurrentShoe] = useState(21);
+  const [currentShoe, setCurrentShoe] = useState(0);
   const [reviewTotal, setReviewTotal] = useState(0);
   const [averageStars, setAverageStars] = useState(0);
   const [averageSize, setAverageSize] = useState(0);
