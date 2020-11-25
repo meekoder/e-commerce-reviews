@@ -22,6 +22,7 @@ export const ReviewProvider = ({ children }) => {
   const [helpfulClicked, setHelpfulClicked] = useState(false);
   const [relevantClicked, setRelevantClicked] = useState(false);
   const [avgStars, setAvgStars] = useState([0, 0, 0, 0, 0]);
+  const [loadMore, setLoadMore] = useState(2);
 
   useEffect(() => {
     async function getReviews() {
@@ -76,6 +77,8 @@ export const ReviewProvider = ({ children }) => {
       setNewestClicked,
       setHelpfulClicked,
       setRelevantClicked,
+      loadMore,
+      setLoadMore,
     }}
     >
       {children}

@@ -4,18 +4,33 @@ import ReviewContext from './ReviewContext';
 import styles from '../../styles.css';
 
 function Reviews() {
-  const { reviews, setReviews, selectedFilters } = useContext(ReviewContext);
+  const {
+    allReviews,
+    selectedFilters,
+    newestClicked,
+    helpfulClicked,
+    relevantClicked,
+    loadMore,
+  } = useContext(ReviewContext);
 
-  const filtered = reviews.filter((review) => {
+  let filtered = allReviews.filter((review) => {
     if (selectedFilters.length) {
       return selectedFilters.includes(review.stars);
     }
     return true;
   });
 
+  if (newestClicked) {
+    filtered = filtered.sort((a, b) => new Date(b.reviewDate) - new Date(a.reviewDate));
+  } else if (helpfulClicked) {
+    filtered = filtered.filter((r) => r.helpfulYes > 0).sort((a, b) => b.helpfulYes - a.helpfulYes);
+  } else if (relevantClicked) {
+    filtered = filtered.filter((r) => r.verified > 0);
+  }
+
   return (
     <div className={styles.reviewList}>
-      {filtered ? filtered.map((review) => (
+      {filtered ? filtered.slice(0, loadMore).map((review) => (
         <Review
           key={review.userName}
           stars={review.stars}

@@ -4,6 +4,7 @@ import styles from '../../styles.css';
 
 function Menu() {
   const {
+    setLoadMore,
     newestClicked,
     setNewestClicked,
     helpfulClicked,
@@ -19,25 +20,21 @@ function Menu() {
     setNewestClicked(true);
     setHelpfulClicked(false);
     setRelevantClicked(false);
-    allReviews.sort((a, b) => new Date(b.reviewDate) - new Date(a.reviewDate));
-    setReviews(allReviews.slice(0, 2));
+    setLoadMore(2);
   };
 
   const toggleHelpful = () => {
     setHelpfulClicked(true);
     setNewestClicked(false);
     setRelevantClicked(false);
-    const filteredHelpful = allReviews.filter((r) => r.helpfulYes > 0).sort((a, b) => b.helpfulYes - a.helpfulYes);
-    setAllReviews(filteredHelpful);
-    setReviews(filteredHelpful.slice(0, 2));
+    setLoadMore(2);
   };
 
   const toggleRelevant = () => {
     setRelevantClicked(true);
     setNewestClicked(false);
     setHelpfulClicked(false);
-    const filteredRelevant = allReviews.filter((r) => r.verified > 0);
-    setReviews(filteredRelevant.slice(0, 2));
+    setLoadMore(2);
   };
 
   return (

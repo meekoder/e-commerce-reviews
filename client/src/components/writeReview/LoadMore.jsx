@@ -4,15 +4,16 @@ import BlackArrow from './BlackArrow';
 import styles from '../../../styles.css';
 
 function LoadMore() {
-  const { allReviews, reviews, setReviews } = useContext(ReviewContext);
+  const { allReviews, reviews, setReviews, loadMore, setLoadMore } = useContext(ReviewContext);
 
-  const loadMore = () => {
-    const currReviewsLength = reviews.length;
-    setReviews(allReviews.slice(0, currReviewsLength + 5));
+  const loadMoreReviews = () => {
+    // const currReviewsLength = reviews.length;
+    // setReviews(allReviews.slice(0, currReviewsLength + 5));
+    setLoadMore(loadMore + 5);
   };
 
   return (
-    <div className={styles.loadMoreBtn} role="button" onClick={loadMore} onKeyDown={loadMore} tabIndex={0}>
+    <div className={styles.loadMoreBtn} role="button" onClick={loadMoreReviews} onKeyDown={loadMoreReviews} tabIndex={0}>
       <div className={styles.wrapper}>
         <span className={styles.loadMoreText}>LOAD MORE</span>
         <BlackArrow />

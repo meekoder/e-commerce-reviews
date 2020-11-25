@@ -6,20 +6,15 @@ import styles from '../../styles.css';
 function Breakdown() {
   const {
     allReviews,
-    setAllReviews,
     reviews,
-    setReviews,
     selectedFilters,
     setSelectedFilters,
     currentShoe,
     setAvgStars,
     avgStars,
-    setFilteredReviews,
-    filteredReviews,
   } = useContext(ReviewContext);
   const [doneLoading, setDoneLoading] = useState(false);
   const [starCount, setStarCount] = useState([]);
-  const [filtersClicked, setFiltersClicked] = useState([]);
 
   useEffect(() => {
     const starCounts = [];
@@ -34,30 +29,9 @@ function Breakdown() {
   }, []);
 
   if (reviews.length > 0 && !doneLoading) {
-    // const filteredStars = {
-    //   1: [],
-    //   2: [],
-    //   3: [],
-    //   4: [],
-    //   5: [],
-    // };
-    // allReviews.forEach((r) => filteredStars[r.stars].push(r));
-    // setFilteredReviews({ filteredStars })
     setDoneLoading(true);
     setAvgStars([((starCount[4] / allReviews.length) * 100), ((starCount[3] / allReviews.length) * 100), ((starCount[2] / allReviews.length) * 100), ((starCount[1] / allReviews.length) * 100), ((starCount[0] / allReviews.length) * 100)]);
   }
-
-  const renderFilteredStars = (stars) => {
-    if (filtersClicked.length) {
-      setAllReviews([...allReviews, ...filteredReviews.filteredStars[stars]]);
-      setReviews([...allReviews, ...filteredReviews.filteredStars[stars]].slice(0, 2));
-    } else {
-      setAllReviews(filteredReviews.filteredStars[stars]);
-      setReviews(filteredReviews.filteredStars[stars].slice(0, 2));
-    }
-  };
-
-  console.log(selectedFilters)
 
   return (
     <div className={styles.breakdown}>
