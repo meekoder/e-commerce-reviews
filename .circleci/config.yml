@@ -37,6 +37,7 @@ jobs:
             echo "$DOCKERHUB_PASS" | docker login -u "$DOCKERHUB_USERNAME" --password-stdin
             docker push $IMAGE_NAME:latest
   deploy:
+    machine: true
     steps:
       - run:
           name: Trigger Proxy
