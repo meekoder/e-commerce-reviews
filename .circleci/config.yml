@@ -37,21 +37,13 @@ jobs:
             echo "$DOCKERHUB_PASS" | docker login -u "$DOCKERHUB_USERNAME" --password-stdin
             docker push $IMAGE_NAME:latest
   deploy:
-    machine:
-      enabled: true
     steps:
-      - add_ssh_keys:
-          fingerprints:
-            - 36:f7:82:49:ac:f6:80:da:d7:af:9b:32:be:2d:b8:3b
       - run:
-          name: Deploy over SSH
+          name: Trigger Proxy
           command: |
-            ssh -o StrictHostKeyChecking=no ubuntu@ec2-184-169-207-158.us-west-1.compute.amazonaws.com bash -c '\
-            pwd
-            cd FEC
-            pwd
-            docker-compose pull
-            docker-compose up -d'
+            curl -u ${PROXY_API_TOKEN}: \
+            -d 'build_parameters[CIRCLE_JOB]=deploy' \
+            https://circleci.com/api/v1.1/project/github/true-barracudas/reviews-proxy/tree/master
 workflows:
   version: 2
   build-master:
