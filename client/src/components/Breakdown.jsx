@@ -33,89 +33,44 @@ function Breakdown() {
     setAvgStars([((starCount[4] / allReviews.length) * 100), ((starCount[3] / allReviews.length) * 100), ((starCount[2] / allReviews.length) * 100), ((starCount[1] / allReviews.length) * 100), ((starCount[0] / allReviews.length) * 100)]);
   }
 
+  const toggleFilter = (stars) => {
+    if (selectedFilters.includes(stars)) {
+      setSelectedFilters(selectedFilters.filter((x) => x !== stars));
+      return;
+    }
+    setSelectedFilters([...selectedFilters, stars])
+  };
+
   return (
     <div className={styles.breakdown}>
       <h6>RATING BREAKDOWN</h6>
       {selectedFilters.length ? (
         <div className={styles.showingReviews}>
           Showing Reviews:
-          {selectedFilters.includes(5)
-            ? (
-              <div className={styles.filters} id={styles.selectedFilter}>
-                <h4 className={styles.starFilter}>5 STARS</h4>
-              </div>
-            )
-            : null}
-          {selectedFilters.includes(4)
-            ? (
-              <div className={styles.filters} id={styles.selectedFilter}>
-                <h4 className={styles.starFilter}>4 STARS</h4>
-              </div>
-            )
-            : null}
-          {selectedFilters.includes(3)
-            ? (
-              <div className={styles.filters} id={styles.selectedFilter}>
-                <h4 className={styles.starFilter}>3 STARS</h4>
-              </div>
-            )
-            : null}
-          {selectedFilters.includes(2)
-            ? (
-              <div className={styles.filters} id={styles.selectedFilter}>
-                <h4 className={styles.starFilter}>2 STARS</h4>
-              </div>
-            )
-            : null}
-          {selectedFilters.includes(1)
-            ? (
-              <div className={styles.filters} id={styles.selectedFilter}>
-                <h4 className={styles.starFilter}>1 STARS</h4>
-              </div>
-            )
-            : null}
+          {[1, 2, 3, 4, 5].map((i) => {
+            return (
+              selectedFilters.includes(i)
+                ? (
+                  <div className={styles.filters} id={styles.selectedFilter}>
+                    <h4 className={styles.starFilter} onClick={() => { toggleFilter(i) }}>{`${i} STARS`}</h4>
+                  </div>
+                )
+                : null
+            )})}
         </div>
       ) : null}
-      <div className={styles.filters}>
-        <h4 onClick={() => { setSelectedFilters([...selectedFilters, 5]); }} className={starCount[4] > 0 ? styles.starFilter : null}>5 STARS</h4>
-        <progress value={avgStars[0]} max="100">
-          {avgStars[0]}
-          <span>%</span>
-        </progress>
-        <div className={styles.starCount}>{starCount[4]}</div>
-      </div>
-      <div className={styles.filters}>
-        <h4 onClick={() => { setSelectedFilters([...selectedFilters, 4]); }} className={starCount[3] > 0 ? styles.starFilter : styles.noStarFilter}>4 STARS</h4>
-        <progress value={avgStars[1]} max="100">
-          {avgStars[1]}
-          <span>%</span>
-        </progress>
-        <div className={styles.starCount}>{starCount[3]}</div>
-      </div>
-      <div className={styles.filters}>
-        <h4 onClick={() => { setSelectedFilters([...selectedFilters, 3]); }} className={starCount[2] > 0 ? styles.starFilter : styles.noStarFilter}>3 STARS</h4>
-        <progress value={avgStars[2]} max="100">
-          {avgStars[2]}
-          <span>%</span>
-        </progress>
-        <div className={styles.starCount}>{starCount[2]}</div>
-      </div>
-      <div className={styles.filters}>
-        <h4 onClick={() => { setSelectedFilters([...selectedFilters, 2]); }} className={starCount[1] > 0 ? styles.starFilter : styles.noStarFilter}>2 STARS</h4>
-        <progress value={avgStars[3]} max="100">
-          {avgStars[3]}
-          <span>%</span>
-        </progress>
-        <div className={styles.starCount}>{starCount[1]}</div>
-      </div>
-      <div className={styles.filters}>
-        <h4 onClick={() => { setSelectedFilters([...selectedFilters, 1]); }} className={starCount[0] > 0 ? styles.starFilter : styles.noStarFilter}>1 STARS</h4>
-        <progress value={avgStars[4]} max="100">
-          {avgStars[4]}
-          <span>%</span>
-        </progress>
-        <div className={styles.starCount}>{starCount[0]}</div>
-      </div>
+      {[1, 2, 3, 4, 5].reverse().map((i => {
+        return (
+          <div className={styles.filters}>
+            <h4 onClick={() => { toggleFilter(i) }} className={starCount[i - 1] > 0 ? styles.starFilter : null}>{i} STARS</h4>
+            <progress value={avgStars[5 - i]} max="100">
+              {avgStars[5 - i]}
+              <span>%</span>
+            </progress>
+            <div className={styles.starCount}>{starCount[i - 1]}</div>
+          </div>
+        )
+      }))}
     </div>
   );
 }

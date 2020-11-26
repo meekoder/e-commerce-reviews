@@ -177,6 +177,7 @@ h6 {
 }
 
 .starFilter {
+  font-family: 'AdihausDIN';
   cursor: pointer;
   text-decoration: underline;
   font-size: 13px;
