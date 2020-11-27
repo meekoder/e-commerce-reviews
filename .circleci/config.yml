@@ -64,6 +64,8 @@ workflows:
            branches:
              only: master
       - trigger-proxy:
+          context:
+            - proxy_context
           requires:
            - publish-latest
           filters:
