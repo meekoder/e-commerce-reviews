@@ -17,7 +17,7 @@ export const ReviewProvider = ({ children }) => {
   const [loadMore, setLoadMore] = useState(2);
   const [starTotals, setStarTotals] = useState([0, 0, 0, 0, 0]);
   const [menuClicked, setMenuClicked] = useState({
-    newest: false,
+    newest: true,
     helpful: false,
     relevant: false,
   });

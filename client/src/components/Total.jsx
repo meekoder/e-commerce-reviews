@@ -12,8 +12,12 @@ function Total() {
       <div className={styles.starReviewCount}>
         <Stars />
         <div className={styles.reviewCount}>
-          <strong>{reviewTotal}</strong>
-          Reviews
+          <div>
+            <strong>{reviewTotal}</strong>
+          </div>
+          <div>
+            Reviews
+          </div>
         </div>
       </div>
     </div>

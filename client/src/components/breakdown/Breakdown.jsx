@@ -12,6 +12,7 @@ function Breakdown() {
     setAvgStars,
     avgStars,
     starTotals,
+    setLoadMore,
   } = useContext(ReviewContext);
   const [doneLoading, setDoneLoading] = useState(false);
 
@@ -26,6 +27,7 @@ function Breakdown() {
   }
 
   const toggleFilter = (stars) => {
+    setLoadMore(2);
     if (selectedFilters.includes(stars)) {
       setSelectedFilters(selectedFilters.filter((x) => x !== stars));
       return;
