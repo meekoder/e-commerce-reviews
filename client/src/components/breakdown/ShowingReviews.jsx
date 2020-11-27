@@ -7,14 +7,10 @@ function ShowingReviews({ toggleFilter }) {
   return (
     <div className={styles.showingReviews}>
       Showing Reviews:
-      {[1, 2, 3, 4, 5].map((i) => (
-        selectedFilters.includes(i)
-          ? (
-            <div className={styles.filters} id={styles.selectedFilter}>
-              <h4 className={styles.starFilter} onClick={() => { toggleFilter(i) }}>{`${i} STARS`}</h4>
-            </div>
-          )
-          : null
+      {selectedFilters.map((i) => (
+        <div className={styles.filters} id={styles.selectedFilter}>
+          <h4 className={styles.starFilter} onClick={() => { toggleFilter(i) }}>{`${i} STARS`}</h4>
+        </div>
       ))}
     </div>
   );
