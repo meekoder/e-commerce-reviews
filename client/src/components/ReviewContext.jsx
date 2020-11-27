@@ -12,10 +12,6 @@ export const ReviewProvider = ({ children }) => {
   const [currentShoe, setCurrentShoe] = useState(0);
   const [reviewTotal, setReviewTotal] = useState(0);
   const [averageStars, setAverageStars] = useState(0);
-  const [averageSize, setAverageSize] = useState(0);
-  const [averageWidth, setAverageWidth] = useState(0);
-  const [averageComfort, setAverageComfort] = useState(0);
-  const [averageQuality, setAverageQuality] = useState(0);
   const [averageRecommended, setAverageRecommended] = useState(0);
   const [newestClicked, setNewestClicked] = useState(true);
   const [helpfulClicked, setHelpfulClicked] = useState(false);
@@ -23,6 +19,12 @@ export const ReviewProvider = ({ children }) => {
   const [avgStars, setAvgStars] = useState([0, 0, 0, 0, 0]);
   const [loadMore, setLoadMore] = useState(2);
   const [starTotals, setStarTotals] = useState([0, 0, 0, 0, 0]);
+  const [averageOpinions, setAverageOpinions] = useState({
+    size: 0,
+    width: 0,
+    comfort: 0,
+    quality: 0,
+  });
 
   useEffect(() => {
     async function getReviews() {
@@ -43,17 +45,20 @@ export const ReviewProvider = ({ children }) => {
       setReviews(reviewsArr.slice(0, 2));
       setReviewTotal(reviewsArr.length);
       setAverageStars((starTotal / reviewsArr.length).toFixed(1));
-      setAverageSize(sizeTotal / reviewsArr.length);
-      setAverageWidth(widthTotal / reviewsArr.length);
-      setAverageComfort(comfortTotal / reviewsArr.length);
-      setAverageQuality(qualityTotal / reviewsArr.length);
       setAverageRecommended(Math.floor((recommendedTotal / reviewsArr.length) * 20));
+      setAverageOpinions({
+        size: (sizeTotal / reviewsArr.length) * 20,
+        width: (widthTotal / reviewsArr.length) * 20,
+        comfort: (comfortTotal / reviewsArr.length) * 20,
+        quality: (qualityTotal / reviewsArr.length) * 20,
+      });
     }
     getReviews();
   }, []);
 
   return (
     <ReviewContext.Provider value={{
+      averageOpinions,
       starTotals,
       avgStars,
       setAvgStars,
@@ -66,10 +71,6 @@ export const ReviewProvider = ({ children }) => {
       currentShoe,
       reviewTotal,
       averageStars,
-      averageSize,
-      averageWidth,
-      averageComfort,
-      averageQuality,
       averageRecommended,
       newestClicked,
       helpfulClicked,

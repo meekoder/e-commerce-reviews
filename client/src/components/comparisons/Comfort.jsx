@@ -62,14 +62,13 @@ const BarLabels = styled.div`
 `;
 
 function Comfort() {
-  const { averageComfort } = useContext(ReviewContext);
-  const avg = averageComfort * 20;
+  const { averageOpinions } = useContext(ReviewContext);
 
   return (
     <Comparison>
       <Title>COMFORT</Title>
       <Bar>
-        <Triangle average={avg} />
+        <Triangle average={averageOpinions.comfort} />
         <Gaps>
           <Gap id={styles.gap2} />
           <Gap id={styles.gap3} />

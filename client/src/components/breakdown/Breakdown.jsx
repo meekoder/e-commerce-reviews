@@ -39,7 +39,7 @@ function Breakdown() {
       {selectedFilters.length ? (<ShowingReviews toggleFilter={toggleFilter} />) : null}
       {[1, 2, 3, 4, 5].reverse().map(((i) => (
         <div className={styles.filters}>
-          <h4 onClick={() => { toggleFilter(i) }} className={starTotals[i - 1] > 0 ? styles.starFilter : null}>{i} STARS</h4>
+          <h4 onClick={() => { toggleFilter(i) }} className={starTotals[i - 1] > 0 ? styles.starFilter : styles.noStarFilter}>{i} STARS</h4>
           <progress value={avgStars[5 - i]} max="100">
             {avgStars[5 - i]}
             <span>%</span>
