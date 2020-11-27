@@ -42,8 +42,9 @@ jobs:
       - run:
           name: Trigger Proxy
           command: |
-            curl -d 'build_parameters[CIRCLE_JOB]=deploy' \
-            'https://circleci.com/api/v1.1/project/github/true-barracudas/reviews-proxy/tree/master?circle-token=PROXY_API_TOKEN'
+            curl -u "$PROXY_API_TOKEN": \
+            -d 'build_parameters[CIRCLE_JOB]=deploy' \
+            https://circleci.com/api/v1.1/project/github/true-barracudas/reviews-proxy/tree/master
 workflows:
   version: 2
   build-master:
