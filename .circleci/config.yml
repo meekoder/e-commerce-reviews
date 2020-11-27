@@ -61,7 +61,7 @@ workflows:
          filters:
            branches:
              only: master
-      - deploy:
+      - trigger-proxy:
           requires:
            - publish-latest
           filters:
