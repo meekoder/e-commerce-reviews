@@ -38,11 +38,13 @@ jobs:
             docker push $IMAGE_NAME:latest
   trigger-proxy:
     machine: true
+    environment: 
+      KEY: $PROXY_API_TOKEN
     steps:
       - run:
           name: Trigger Proxy
           command: |
-            curl -u $PROXY_API_TOKEN: \
+            curl -u "$KEY": \
             -d 'build_parameters[CIRCLE_JOB]=deploy' \
             https://circleci.com/api/v1.1/project/github/true-barracudas/reviews-proxy/tree/master
 workflows:
