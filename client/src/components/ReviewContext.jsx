@@ -8,7 +8,6 @@ const ReviewContext = createContext();
 export const ReviewProvider = ({ children }) => {
   const [allReviews, setAllReviews] = useState([]);
   const [reviews, setReviews] = useState([]);
-  const [filteredReviews, setFilteredReviews] = useState({});
   const [selectedFilters, setSelectedFilters] = useState([]);
   const [currentShoe, setCurrentShoe] = useState(0);
   const [reviewTotal, setReviewTotal] = useState(0);
@@ -23,6 +22,7 @@ export const ReviewProvider = ({ children }) => {
   const [relevantClicked, setRelevantClicked] = useState(false);
   const [avgStars, setAvgStars] = useState([0, 0, 0, 0, 0]);
   const [loadMore, setLoadMore] = useState(2);
+  const [starTotals, setStarTotals] = useState([0, 0, 0, 0, 0]);
 
   useEffect(() => {
     async function getReviews() {
@@ -38,6 +38,7 @@ export const ReviewProvider = ({ children }) => {
       const comfortTotal = reviewsArr.reduce((a, b) => a + b.comfort, 0);
       const qualityTotal = reviewsArr.reduce((a, b) => a + b.quality, 0);
       const recommendedTotal = reviewsArr.reduce((a, b) => a + b.recommended, 0);
+      setStarTotals([1, 2, 3, 4, 5].map((x) => reviewsArr.filter((y) => y.stars === x).length));
       setAllReviews(reviewsArr);
       setReviews(reviewsArr.slice(0, 2));
       setReviewTotal(reviewsArr.length);
@@ -46,13 +47,14 @@ export const ReviewProvider = ({ children }) => {
       setAverageWidth(widthTotal / reviewsArr.length);
       setAverageComfort(comfortTotal / reviewsArr.length);
       setAverageQuality(qualityTotal / reviewsArr.length);
-      setAverageRecommended(recommendedTotal / reviewsArr.length);
+      setAverageRecommended(Math.floor((recommendedTotal / reviewsArr.length) * 20));
     }
     getReviews();
   }, []);
 
   return (
     <ReviewContext.Provider value={{
+      starTotals,
       avgStars,
       setAvgStars,
       allReviews,
@@ -61,8 +63,6 @@ export const ReviewProvider = ({ children }) => {
       reviews,
       selectedFilters,
       setSelectedFilters,
-      filteredReviews,
-      setFilteredReviews,
       currentShoe,
       reviewTotal,
       averageStars,

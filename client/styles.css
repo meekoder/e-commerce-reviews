@@ -428,7 +428,7 @@ h6 {
   margin: 0;
 }
 
-#menuBorder {
+.menuBorder {
   border: 1px solid #767677;
   flex-grow: 1;
   flex-basis: 0;
@@ -437,7 +437,7 @@ h6 {
   line-height: 20px;
 }
 
-.activeMenu {
+#activeMenu {
   flex-grow: 1;
   flex-basis: 0;
   margin-left: 0;

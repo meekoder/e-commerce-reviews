@@ -3,7 +3,7 @@ import { ReviewProvider } from './ReviewContext';
 import styles from '../../styles.css';
 import Reviews from './Reviews';
 import Total from './Total';
-import Breakdown from './Breakdown';
+import Breakdown from './breakdown/Breakdown';
 import Opinions from './Opinions';
 import Buttons from './writeReview/Buttons';
 import Comparisons from './comparisons/Comparisons';

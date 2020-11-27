@@ -23,7 +23,7 @@ function Review({ stars, summary, fullReview, recommended, image, helpfulYes, he
       .then(() => {
         setHelpfulYes(helpfulY + 1);
       })
-      .catch((err) => console.log(err));
+      .catch((err) => console.error(err));
   };
 
   const addNotHelpful = (username) => {
@@ -33,7 +33,7 @@ function Review({ stars, summary, fullReview, recommended, image, helpfulYes, he
       .then(() => {
         setHelpfulNo(helpfulN + 1);
       })
-      .catch((err) => console.log(err));
+      .catch((err) => console.error(err));
   };
 
   return (

@@ -30,17 +30,6 @@ router.route('/:id/reviews')
     });
   });
 
-router.route('/:id/reviews/:stars')
-  .get((req, res) => {
-    reviewCtrl.getStars(req.params.id, req.params.stars, (err, data) => {
-      if (err) {
-        res.sendStatus(404);
-      } else {
-        res.status(200).json(data);
-      }
-    });
-  });
-
 router.route('/:id/:username/helpful')
   .post((req, res) => {
     reviewCtrl.postHelpful(req.params.id, req.params.username, (err, data) => {

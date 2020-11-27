@@ -1,16 +1,5 @@
 const Reviews = require('../models/review.js');
 
-const getReviews = (cb) => {
-  Reviews.findAll((err, data) => {
-    if (err) {
-      console.log(err);
-      cb(err, null);
-    } else {
-      cb(null, data);
-    }
-  });
-};
-
 const getShoeReviews = (id, cb) => {
   Reviews.findOne(id, (err, data) => {
     if (err) {
@@ -29,18 +18,6 @@ const getNewest = (id, cb) => {
       cb(err, null);
     } else {
       data[0].reviews.sort((a, b) => new Date(b.reviewDate) - new Date(a.reviewDate));
-      cb(null, data);
-    }
-  });
-};
-
-const getStars = (id, starCount, cb) => {
-  Reviews.findOne(id, (err, data) => {
-    if (err) {
-      console.log(err);
-      cb(err, null);
-    } else {
-      data[0].reviews = data[0].reviews.filter((d) => d.stars == starCount);
       cb(null, data);
     }
   });
@@ -71,8 +48,6 @@ const postNotHelpful = (id, username, cb) => {
 module.exports = {
   postHelpful,
   postNotHelpful,
-  getReviews,
   getShoeReviews,
   getNewest,
-  getStars,
 };

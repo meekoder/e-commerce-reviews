@@ -7,10 +7,6 @@ const shoeSchema = mongoose.Schema({
 
 const ShoeModel = mongoose.model('Shoe', shoeSchema);
 
-const findAll = (cb) => {
-  ShoeModel.find({}, cb);
-};
-
 const findOne = (id, cb) => {
   ShoeModel.find({ id }, cb);
 };
@@ -54,6 +50,5 @@ module.exports = {
   insertOne,
   updateHelpful,
   updateNotHelpful,
-  findAll,
   findOne,
 };

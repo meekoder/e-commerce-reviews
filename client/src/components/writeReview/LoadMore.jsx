@@ -4,11 +4,9 @@ import BlackArrow from './BlackArrow';
 import styles from '../../../styles.css';
 
 function LoadMore() {
-  const { allReviews, reviews, setReviews, loadMore, setLoadMore } = useContext(ReviewContext);
+  const { loadMore, setLoadMore } = useContext(ReviewContext);
 
   const loadMoreReviews = () => {
-    // const currReviewsLength = reviews.length;
-    // setReviews(allReviews.slice(0, currReviewsLength + 5));
     setLoadMore(loadMore + 5);
   };
 
