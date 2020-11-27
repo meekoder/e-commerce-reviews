@@ -7,9 +7,7 @@ function Reviews() {
   const {
     allReviews,
     selectedFilters,
-    newestClicked,
-    helpfulClicked,
-    relevantClicked,
+    menuClicked,
     loadMore,
   } = useContext(ReviewContext);
 
@@ -20,11 +18,11 @@ function Reviews() {
     return true;
   });
 
-  if (newestClicked) {
+  if (menuClicked.newest) {
     filtered = filtered.sort((a, b) => new Date(b.reviewDate) - new Date(a.reviewDate));
-  } else if (helpfulClicked) {
+  } else if (menuClicked.helpful) {
     filtered = filtered.filter((r) => r.helpfulYes > 0).sort((a, b) => b.helpfulYes - a.helpfulYes);
-  } else if (relevantClicked) {
+  } else if (menuClicked.relevant) {
     filtered = filtered.filter((r) => r.verified > 0);
   }
 

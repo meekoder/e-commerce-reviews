@@ -5,45 +5,35 @@ import styles from '../../styles.css';
 function Menu() {
   const {
     setLoadMore,
-    newestClicked,
-    setNewestClicked,
-    helpfulClicked,
-    setHelpfulClicked,
-    relevantClicked,
-    setRelevantClicked,
+    menuClicked,
+    setMenuClicked,
   } = useContext(ReviewContext);
 
   const toggleNewest = () => {
-    setNewestClicked(true);
-    setHelpfulClicked(false);
-    setRelevantClicked(false);
+    setMenuClicked({ newest: true });
     setLoadMore(2);
   };
 
   const toggleHelpful = () => {
-    setHelpfulClicked(true);
-    setNewestClicked(false);
-    setRelevantClicked(false);
+    setMenuClicked({ helpful: true });
     setLoadMore(2);
   };
 
   const toggleRelevant = () => {
-    setRelevantClicked(true);
-    setNewestClicked(false);
-    setHelpfulClicked(false);
+    setMenuClicked({ relevant: true });
     setLoadMore(2);
   };
 
   return (
     <ul className={styles.menu}>
-      <li className={styles.menuBorder} id={newestClicked && styles.activeMenu}>
-        <button type="button" onClick={toggleNewest} className={styles.menuBtn} id={newestClicked && styles.activeBtn}>NEWEST</button>
+      <li className={styles.menuBorder} id={menuClicked.newest && styles.activeMenu}>
+        <button type="button" onClick={toggleNewest} className={styles.menuBtn} id={menuClicked.newest && styles.activeBtn}>NEWEST</button>
       </li>
-      <li className={styles.menuBorder} id={helpfulClicked && styles.activeMenu}>
-        <button type="button" onClick={toggleHelpful} className={styles.menuBtn} id={helpfulClicked && styles.activeBtn}>HELPFUL</button>
+      <li className={styles.menuBorder} id={menuClicked.helpful && styles.activeMenu}>
+        <button type="button" onClick={toggleHelpful} className={styles.menuBtn} id={menuClicked.helpful && styles.activeBtn}>HELPFUL</button>
       </li>
-      <li className={styles.menuBorder} id={relevantClicked && styles.activeMenu}>
-        <button type="button" onClick={toggleRelevant} className={styles.menuBtn} id={relevantClicked && styles.activeBtn}>RELEVANT</button>
+      <li className={styles.menuBorder} id={menuClicked.relevant && styles.activeMenu}>
+        <button type="button" onClick={toggleRelevant} className={styles.menuBtn} id={menuClicked.relevant && styles.activeBtn}>RELEVANT</button>
       </li>
     </ul>
   );

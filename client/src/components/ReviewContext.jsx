@@ -13,12 +13,14 @@ export const ReviewProvider = ({ children }) => {
   const [reviewTotal, setReviewTotal] = useState(0);
   const [averageStars, setAverageStars] = useState(0);
   const [averageRecommended, setAverageRecommended] = useState(0);
-  const [newestClicked, setNewestClicked] = useState(true);
-  const [helpfulClicked, setHelpfulClicked] = useState(false);
-  const [relevantClicked, setRelevantClicked] = useState(false);
   const [avgStars, setAvgStars] = useState([0, 0, 0, 0, 0]);
   const [loadMore, setLoadMore] = useState(2);
   const [starTotals, setStarTotals] = useState([0, 0, 0, 0, 0]);
+  const [menuClicked, setMenuClicked] = useState({
+    newest: false,
+    helpful: false,
+    relevant: false,
+  });
   const [averageOpinions, setAverageOpinions] = useState({
     size: 0,
     width: 0,
@@ -72,12 +74,8 @@ export const ReviewProvider = ({ children }) => {
       reviewTotal,
       averageStars,
       averageRecommended,
-      newestClicked,
-      helpfulClicked,
-      relevantClicked,
-      setNewestClicked,
-      setHelpfulClicked,
-      setRelevantClicked,
+      menuClicked,
+      setMenuClicked,
       loadMore,
       setLoadMore,
     }}
