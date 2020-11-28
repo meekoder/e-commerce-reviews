@@ -1,4 +1,5 @@
 const express = require('express');
+const compression = require('compression');
 const parser = require('body-parser');
 const mongoose = require('mongoose');
 const path = require('path');
@@ -10,6 +11,7 @@ const port = 3004;
 mongoose.connect('mongodb://database/reviews',
   { useNewUrlParser: true, useUnifiedTopology: true })
   .then(() => {
+    app.use(compression());
     app.use(express.static(`${__dirname}/../public`));
     app.use(parser.json());
     app.use('/api/products', reviewRouter);
