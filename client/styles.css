@@ -366,10 +366,11 @@ h6 {
 
 .writeReviewText {
   font-family: 'AdihausDIN';
+  font-size: 13px;
+  font-weight: 700;
   color: white;
   padding-top: 3px;
   letter-spacing: 2px;
-  font-size: 13px;
 }
 
 .borderBtn {
@@ -407,10 +408,11 @@ h6 {
 
 .loadMoreText {
   font-family: 'AdihausDIN';
+  font-size: 13px;
+  font-weight: 700;
   color: black;
   padding-top: 3px;
   letter-spacing: 2px;
-  font-size: 13px;
 }
 
 .buttons {
