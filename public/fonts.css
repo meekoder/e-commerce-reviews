@@ -1,0 +1,31 @@
+@font-face {
+  font-family: "AdihausDIN-Cn";
+  src: url("./fonts/729-font.woff") format("woff"),
+    url("./fonts/729-font.woff2") format("woff2");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "AdihausDIN";
+  src: url("./fonts/AdihausDIN-Regular.woff") format("woff"),
+    url("./fonts/AdihausDIN-Regular.woff2") format("woff2");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "AdihausDIN-Cn";
+  src: url("./fonts/AdihausDIN-CnMediumItalic.woff") format("woff"),
+    url("./fonts/AdihausDIN-CnMediumItalic.woff2") format("woff2");
+  font-weight: 500;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "AdihausDIN";
+  src: url("./fonts/AdihausDIN-Bold.woff") format("woff"),
+    url("./fonts/AdihausDIN-Bold.woff2") format("woff2");
+  font-weight: bold;
+  font-style: normal;
+}
