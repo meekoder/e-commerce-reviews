@@ -19,7 +19,7 @@ function Review({ stars, summary, fullReview, recommended, image, helpfulYes, he
   const addHelpful = (username) => {
     setVoteClicked(true);
     axios
-      .post(`/api/products/${currentShoe}/reviews/${username}/helpful`)
+      .post(`/api/products/${currentShoe}/${username}/helpful`)
       .then(() => {
         setHelpfulYes(helpfulY + 1);
       })
