@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import ReviewContext from './ReviewContext';
 import styles from '../../styles.css';
 import Stars from './Stars';
+import ImageModal from './ImageModal';
 
 function Review({ stars, summary, fullReview, recommended, image, helpfulYes, helpfulNo, date, user, verified }) {
   const { currentShoe, viewModal, setViewModal } = useContext(ReviewContext);
@@ -36,10 +37,6 @@ function Review({ stars, summary, fullReview, recommended, image, helpfulYes, he
       .catch((err) => console.error(err));
   };
 
-  const handleModal = () => {
-    setViewModal(true);
-  };
-
   return (
     <div className={styles.review}>
       <div className={styles.stars}>
@@ -62,7 +59,8 @@ function Review({ stars, summary, fullReview, recommended, image, helpfulYes, he
               </p>
             </div>
           )}
-      {image && <img className={styles.reviewImg} src={image} image={image} onClick={handleModal} alt="review" />}
+      {image && <img className={styles.reviewImg} src={image} image={image} onClick={() => setViewModal(true)} alt="review" />}
+      {image && <ImageModal image={image} />}
       <div className={styles.verifiedUser}>
         <p className={styles.user}>{user}</p>
         {verified === 1 && <span className={styles.verified}>- Verified Purchaser</span>}
