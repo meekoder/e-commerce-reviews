@@ -2,7 +2,6 @@ import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
 import BaseModal from './Modal';
 import ReviewContext from './ReviewContext';
-import styles from '../../styles.css';
 
 function ImageModal({ image }) {
   const { viewModal, setViewModal } = useContext(ReviewContext);
