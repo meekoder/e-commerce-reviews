@@ -29,7 +29,7 @@ const generateReviews = (i) => {
         reviewDate: faker.date.past(),
         summary: faker.lorem.sentence(),
         fullReview: faker.lorem.sentences(),
-        stars: getRandomNum(1, 6),
+        stars: count % 25 === 0 ? 1 : getRandomNum(2, 6),
         size: getRandomNum(1, 6),
         width: getRandomNum(1, 6),
         comfort: getRandomNum(1, 6),
