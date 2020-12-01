@@ -9,9 +9,8 @@ function ImageModal({ image }) {
     <BaseModal
       show={viewModal}
       handleExit={() => setViewModal(false)}
-      wide
     >
-      <img className={styles.reviewImg} src={image} alt="review" />
+      <img src={image} alt="review" />
     </BaseModal>
   );
 }

@@ -12,6 +12,7 @@ const Background = styled.div`
   width: 100vw;
   height: 100vh;
   overflow: auto;
+  z-index: 200;
 `;
 
 const ClickableBackground = styled.div`
@@ -49,7 +50,7 @@ const ModalContentWrapper = styled.div`
   overflow: auto;
 `;
 
-function BaseModal({ show, handleExit, children, wide }) {
+function BaseModal({ show, handleExit, children }) {
   // eslint-disable-next-line no-unused-expressions
   show && (document.body.style.overflow = 'hidden');
   function handleClick() {
@@ -59,7 +60,7 @@ function BaseModal({ show, handleExit, children, wide }) {
   }
   return (
     <Background show={show}>
-      <ModalContent wide={wide} show={show}>
+      <ModalContent show={show}>
         <ModalContentWrapper>
           {children}
         </ModalContentWrapper>
@@ -70,15 +71,10 @@ function BaseModal({ show, handleExit, children, wide }) {
   );
 }
 
-BaseModal.defaultProps = {
-  wide: false,
-};
-
 BaseModal.propTypes = {
   show: PropTypes.bool.isRequired,
   handleExit: PropTypes.func.isRequired,
   children: PropTypes.node.isRequired,
-  wide: PropTypes.bool,
 };
 
 export default BaseModal;
