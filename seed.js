@@ -19,7 +19,7 @@ const getImage = () => {
 const generateReviews = (i) => {
   const seededReviews = [];
   let count = 0;
-  const reviewCount = getRandomNum(10, 51);
+  const reviewCount = getRandomNum(20, 101);
 
   while (count < reviewCount) {
     seededReviews.push(
