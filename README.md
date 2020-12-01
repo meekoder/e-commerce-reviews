@@ -1,4 +1,4 @@
-# Sadida
+# BlueBar Apparel 
 
 > Project description
 
