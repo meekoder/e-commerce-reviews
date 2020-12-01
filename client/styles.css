@@ -263,6 +263,8 @@ h6 {
   font-family: 'AdihausDIN';
   letter-spacing: 2px;
   line-height: 15px;
+  width: 25px;
+  text-align: center;
 }
 
 .stars {
