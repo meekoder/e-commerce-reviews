@@ -66,6 +66,10 @@ h6 {
   cursor: pointer;
 }
 
+.modal {
+  z-index: 200;
+}
+
 .helpful {
   font-size: 14px;
   margin-top: 20px;

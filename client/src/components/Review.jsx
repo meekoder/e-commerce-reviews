@@ -59,8 +59,8 @@ function Review({ stars, summary, fullReview, recommended, image, helpfulYes, he
               </p>
             </div>
           )}
+      {image && <ImageModal className={styles.modal} image={image} />}
       {image && <img className={styles.reviewImg} src={image} image={image} onClick={() => setViewModal(true)} alt="review" />}
-      {image && <ImageModal image={image} />}
       <div className={styles.verifiedUser}>
         <p className={styles.user}>{user}</p>
         {verified === 1 && <span className={styles.verified}>- Verified Purchaser</span>}

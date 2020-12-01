@@ -12,7 +12,7 @@ const Background = styled.div`
   width: 100vw;
   height: 100vh;
   overflow: auto;
-  z-index: 200;
+  z-index: 500;
 `;
 
 const ClickableBackground = styled.div`
@@ -25,7 +25,7 @@ const ClickableBackground = styled.div`
   background-color: rgba(0, 0, 0, 0.7);
   opacity: ${(props) => (props.show ? '1' : '0')};
   transition: opacity 0.2s;
-  z-index: -1;
+  z-index: 200;
 `;
 
 const ModalContent = styled.div`
