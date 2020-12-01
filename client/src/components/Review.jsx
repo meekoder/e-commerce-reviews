@@ -59,7 +59,7 @@ function Review({ stars, summary, fullReview, recommended, image, helpfulYes, he
               </p>
             </div>
           )}
-      {/* {image && <ImageModal className={styles.modal} image={image} />} */}
+      {image && <ImageModal className={styles.modal} image={image} />}
       {image && <img className={styles.reviewImg} src={image} image={image} onClick={() => setViewModal(true)} alt="review" />}
       <div className={styles.verifiedUser}>
         <p className={styles.user}>{user}</p>
