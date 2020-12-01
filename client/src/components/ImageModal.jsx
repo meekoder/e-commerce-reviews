@@ -1,7 +1,10 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import BaseModal from './Modal';
+import ReviewContext from './ReviewContext';
+import styles from '../../styles.css';
 
-function ImageModal({ handleModal, viewModal, setViewModal, image }) {
+function ImageModal({ image }) {
+  const { viewModal, setViewModal } = useContext(ReviewContext);
   return (
     <BaseModal
       show={viewModal}

@@ -6,7 +6,7 @@ import styles from '../../styles.css';
 import Stars from './Stars';
 
 function Review({ stars, summary, fullReview, recommended, image, helpfulYes, helpfulNo, date, user, verified }) {
-  const { currentShoe } = useContext(ReviewContext);
+  const { currentShoe, viewModal, setViewModal } = useContext(ReviewContext);
   const [helpfulY, setHelpfulYes] = useState(helpfulYes);
   const [helpfulN, setHelpfulNo] = useState(helpfulNo);
   const [voteClicked, setVoteClicked] = useState(false);
@@ -15,8 +15,7 @@ function Review({ stars, summary, fullReview, recommended, image, helpfulYes, he
   const year = reviewDate.getFullYear();
   const options = { month: 'long' };
   const month = new Intl.DateTimeFormat('en-US', options).format(reviewDate);
-  const [viewModal, setViewModal] = useState(false);
-
+  
   const addHelpful = (username) => {
     setVoteClicked(true);
     axios
@@ -63,7 +62,7 @@ function Review({ stars, summary, fullReview, recommended, image, helpfulYes, he
               </p>
             </div>
           )}
-      {image && <img className={styles.reviewImg} src={image} handleModal={handleModal} viewModal={viewModal} image={image} onClick={handleModal} alt="review" />}
+      {image && <img className={styles.reviewImg} src={image} image={image} onClick={handleModal} alt="review" />}
       <div className={styles.verifiedUser}>
         <p className={styles.user}>{user}</p>
         {verified === 1 && <span className={styles.verified}>- Verified Purchaser</span>}

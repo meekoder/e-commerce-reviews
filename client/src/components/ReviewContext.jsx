@@ -16,6 +16,7 @@ export const ReviewProvider = ({ children }) => {
   const [avgStars, setAvgStars] = useState([0, 0, 0, 0, 0]);
   const [loadMore, setLoadMore] = useState(2);
   const [starTotals, setStarTotals] = useState([0, 0, 0, 0, 0]);
+  const [viewModal, setViewModal] = useState(false);
   const [menuClicked, setMenuClicked] = useState({
     newest: true,
     helpful: false,
@@ -60,6 +61,8 @@ export const ReviewProvider = ({ children }) => {
 
   return (
     <ReviewContext.Provider value={{
+      viewModal,
+      setViewModal,
       averageOpinions,
       starTotals,
       avgStars,
