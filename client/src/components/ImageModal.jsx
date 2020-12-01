@@ -1,7 +1,7 @@
 import React from 'react';
 import BaseModal from './Modal';
 
-function ImageModal({ viewModal, setViewModal, image }) {
+function ImageModal({ handleModal, viewModal, setViewModal, image }) {
   return (
     <BaseModal
       show={viewModal}
