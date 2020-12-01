@@ -15,6 +15,7 @@ function Review({ stars, summary, fullReview, recommended, image, helpfulYes, he
   const year = reviewDate.getFullYear();
   const options = { month: 'long' };
   const month = new Intl.DateTimeFormat('en-US', options).format(reviewDate);
+  const [viewModal, setViewModal] = useState(false);
 
   const addHelpful = (username) => {
     setVoteClicked(true);
@@ -34,6 +35,10 @@ function Review({ stars, summary, fullReview, recommended, image, helpfulYes, he
         setHelpfulNo(helpfulN + 1);
       })
       .catch((err) => console.error(err));
+  };
+
+  const handleModal = () => {
+    setViewModal(true);
   };
 
   return (
@@ -58,7 +63,7 @@ function Review({ stars, summary, fullReview, recommended, image, helpfulYes, he
               </p>
             </div>
           )}
-      {image && <img className={styles.reviewImg} src={image} alt="review" />}
+      {image && <img className={styles.reviewImg} src={image} onClick={handleModal} alt="review" />}
       <div className={styles.verifiedUser}>
         <p className={styles.user}>{user}</p>
         {verified === 1 && <span className={styles.verified}>- Verified Purchaser</span>}
