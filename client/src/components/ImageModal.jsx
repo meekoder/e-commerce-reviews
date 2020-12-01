@@ -1,4 +1,5 @@
 import React, { useContext } from 'react';
+import PropTypes from 'prop-types';
 import BaseModal from './Modal';
 import ReviewContext from './ReviewContext';
 import styles from '../../styles.css';
@@ -15,4 +16,7 @@ function ImageModal({ image }) {
   );
 }
 
+ImageModal.propTypes = {
+  image: PropTypes.string.isRequired,
+};
 export default ImageModal;

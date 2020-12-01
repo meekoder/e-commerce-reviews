@@ -41,7 +41,7 @@ const ModalContent = styled.div`
   opacity: ${(props) => (props.show ? '1' : '0')};
   transition: opacity 0.45s;
   transition-delay: 0.1s;
-  z-index: 0;
+  z-index: 200;
 `;
 
 const ModalContentWrapper = styled.div`
