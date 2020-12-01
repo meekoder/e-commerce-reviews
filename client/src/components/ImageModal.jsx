@@ -11,7 +11,7 @@ function ImageModal({ image }) {
       handleExit={() => setViewModal(false)}
       wide
     >
-      <img className={styles.reviewImg} src={image} onClick={handleModal} alt="review" />
+      <img className={styles.reviewImg} src={image} alt="review" />
     </BaseModal>
   );
 }
