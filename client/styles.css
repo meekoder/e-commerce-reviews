@@ -409,11 +409,13 @@ h6 {
   -moz-user-select: none;    
   -ms-user-select: none;      
   user-select: none;
+  outline: none;
 }
 
 .loadMoreBtn:active {
   transform: scale(.95, .95);
   transition: transform .1s;
+  outline: none;
 }
 
 .loadMoreText {
