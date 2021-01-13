@@ -1,6 +1,12 @@
 # BlueBar Apparel 
 
 Reviews component for E-commerce store
+### Site Preview
+
+![](BlueBar1.png)
+![](BlueBar2.png)
+![](BlueBar3.png)
+![](BlueBar4.png)
 
 ## Related Projects
 
