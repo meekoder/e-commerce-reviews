@@ -15,6 +15,9 @@ Reviews component for E-commerce store
 1. [Requirements](#requirements)
 1. [Development](#development)
 
+## Usage
+
+BlueBar Apparel allows users to view products, product details, add products to cart/checkout, view related products and reviews.
 
 ## Requirements
 
