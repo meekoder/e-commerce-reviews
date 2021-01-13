@@ -15,9 +15,6 @@ Reviews component for E-commerce store
 1. [Requirements](#requirements)
 1. [Development](#development)
 
-## Usage
-
-> Some usage instructions
 
 ## Requirements
 
