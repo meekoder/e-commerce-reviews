@@ -4,10 +4,10 @@ Reviews component for E-commerce store
 
 ## Related Projects
 
-  - https://github.com/teamName/repo
-  - https://github.com/teamName/repo
-  - https://github.com/teamName/repo
-  - https://github.com/teamName/repo
+  - https://github.com/gregoryrichens/sports-apparel-main-product-view
+  - https://github.com/true-barracudas/trackpinch-service
+  - https://github.com/true-barracudas/suggestions-service
+  - https://github.com/true-barracudas/reviews-proxy
 
 ## Table of Contents
 
@@ -33,7 +33,9 @@ An `nvmrc` file is included if using [nvm](https://github.com/creationix/nvm).
 From within the root directory:
 
 ```sh
-npm install -g webpack
 npm install
+npm run seed
+npm start
+npm run react-dev
 ```
 
