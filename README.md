@@ -1,6 +1,6 @@
 # BlueBar Apparel 
 
-> Project description
+Reviews component for E-commerce store
 
 ## Related Projects
 
